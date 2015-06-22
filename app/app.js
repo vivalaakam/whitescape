@@ -1,8 +1,7 @@
 var React = require('react');
+var Router = require('react-router');
+var Routes = require('./routes');
 
-var APP = require('./components/app');
-
-React.render(
-  <APP />,
-  document.getElementById('main')
-);
+Router.run(Routes, Router.HistoryLocation, function (Handler, state) {
+	  	React.render(<Handler />, document.getElementById('main'));
+	});
