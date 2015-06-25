@@ -3,7 +3,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             browserify: {
-                files: './app/**/*.js',
+                files: ['./app/**/*.js', './app/**/*.jsx'],
                 tasks: ['browserify'],
             },
             less: {
@@ -14,9 +14,9 @@ module.exports = function(grunt) {
         connect: {
             server: {
                 options: {
-                  hostname: 'localhost',
-                  port: 3000,
-                  base: './public'
+                    hostname: 'localhost',
+                    port: 3000,
+                    base: './public'
                 }
             }
         },

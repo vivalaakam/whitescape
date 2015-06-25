@@ -8,6 +8,7 @@
         "react": "~0.13",
         "react-router": "~0.13",
         "superagent": "^0.21.0",
+        "keymirror": "~0.1.0",
         "grunt": ">= 0.4",
         "grunt-cli": ">= 0.1.6",
         "grunt-contrib-watch": "~0.3.1",
@@ -16,6 +17,7 @@
         "grunt-webpack": "~1.0",
         "grunt-browserify": "2.1.4",
         "grunt-contrib-copy": "~0.8",
-        "grunt-react": "~0.12"
+        "grunt-react": "~0.12",
+        "promise" : "~7.0"
     }
 }
