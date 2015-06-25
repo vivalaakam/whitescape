@@ -4,17 +4,23 @@ var ApiUtils = require('../utils/apiutils');
 
 module.exports = {
     signup: function(data) {
-        var promise = ApiUtils.signup(data);
-
-        promise.then(function(response) {
-            AppDispatcher.dispatch({
-                type: ActionTypes.SIGNUP,
-                data: response
+        return ApiUtils.signup(data)
+            .then(function(response) {
+                AppDispatcher.dispatch({
+                    type: ActionTypes.SIGNUP,
+                    data: response
+                });
+            }, function(data) {
+                console.log(data);
             });
-        } , function(data) {
-          console.log(data);
-        });
-
-        return promise;
+    },
+    login: function(data) {
+        return ApiUtils.login(data)
+            .then(function(response) {
+              AppDispatcher.dispatch({
+                  type: ActionTypes.LOGIN,
+                  data: response
+              });
+            });
     }
 };

@@ -30,6 +30,9 @@ var SessionStore = assign({}, EventEmitter.prototype, {
     },
     getSession: function() {
         return session;
+    },
+    isLoggedIn: function() {
+        return session && session.token;
     }
 });
 
@@ -37,7 +40,7 @@ SessionStore.dispatchToken = AppDispatcher.register(function(action) {
 
     switch (action.type) {
         case ActionTypes.SIGNUP:
-        case ActionTypes.SIGNIN:
+        case ActionTypes.LOGIN:
             _setSession(action.data);
             SessionStore.emitChange();
             break;

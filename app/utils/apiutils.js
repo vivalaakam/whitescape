@@ -19,5 +19,22 @@ module.exports = {
                     }
                 });
         });
+    },
+    login: function(data) {
+        return new Promise(function(resolve, reject) {
+          request
+              .post('https://shrouded-tundra-7473.herokuapp.com:443/api/account/login/')
+              .send(data)
+              .end(function(error, res) {
+                  if (res) {
+                      var data = JSON.parse(res.text);
+                      if (res.status === 200) {
+                          resolve(data);
+                      } else {
+                          reject(data);
+                      }
+                  }
+              });
+        });
     }
 };

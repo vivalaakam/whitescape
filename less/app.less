@@ -1,25 +1,21 @@
 @font-face {
-  font-family: "avenir-light";
-  src: url("../fonts/avenir.eot");
-  src: url("../fonts/avenir-light.eot?#iefix") format("embedded-opentype"), url("../fonts/avenir-light.woff") format("woff"), url("../fonts/avenir-light.ttf") format("truetype"), url("../fonts/avenir-light.svg#avenir-light") format("svg");
-  font-weight: normal;
-  font-style: normal;
+    font-family: "avenir-light";
+    src: url("../fonts/avenir.eot");
+    src: url("../fonts/avenir-light.eot?#iefix") format("embedded-opentype"), url("../fonts/avenir-light.woff") format("woff"), url("../fonts/avenir-light.ttf") format("truetype"), url("../fonts/avenir-light.svg#avenir-light") format("svg");
+    font-weight: normal;
+    font-style: normal;
 }
-
-
 html,
 body {
     margin: 0;
     padding: 0;
     height: 100%;
 }
-
 * {
-  font-family: "avenir-light", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  color: #fff;
+    font-family: "avenir-light", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #fff;
 }
-
 #main {
     height: 100%;
     .content {
@@ -59,25 +55,37 @@ body {
     font-size: 18px;
     border: none;
 }
-
 .already_exists {
-  margin: 0 auto;
-  width: 300px;
-  color: #fff;
-  text-align: center;
-  position: absolute;
-  left: 50%;
-  top: 50px;
-  margin-left: -150px;
-  span {
-    opacity: .5
-  }
-
-  a {
-    text-decoration: none;
+    margin: 0 auto;
+    width: 300px;
     color: #fff;
-    &:hover , &:visited {
-      color: #fff;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    margin-left: -150px;
+    span {
+        opacity: 0.5;
     }
-  }
+    a {
+        text-decoration: none;
+        color: #fff;
+        &:hover,
+        &:visited {
+            color: #fff;
+        }
+    }
+}
+.error {
+    position: relative;
+    top: -45px;
+    background-color: red;
+    margin: 0;
+    padding: 0;
+    min-height: 45px;
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
 }
