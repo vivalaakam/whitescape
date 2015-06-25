@@ -28,8 +28,11 @@ var SessionStore = assign({}, EventEmitter.prototype, {
     removeChangeListener: function(callback) {
         this.removeListener(CHANGE_EVENT, callback);
     },
-    getSession: function() {
-        return session;
+    getData: function() {
+        return session.profile;
+    },
+    getToken: function() {
+        return session.token;
     },
     isLoggedIn: function() {
         return session && session.token;
