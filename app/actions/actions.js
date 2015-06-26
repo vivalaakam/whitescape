@@ -58,5 +58,14 @@ module.exports = {
                     page: page
                 });
             });
+    },
+    removeMessage: function(message) {
+      return ApiUtils.removeMessage(message.id)
+          .then(function(response) {
+              AppDispatcher.dispatch({
+                  type: ActionTypes.REMOVE_MESSAGE,
+                  data: message,
+              });
+          });
     }
 };

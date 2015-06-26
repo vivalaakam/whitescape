@@ -95,5 +95,24 @@ module.exports = {
                     }
                 });
         });
+    },
+    removeMessage: function(id) {
+        return new Promise(function(resolve, reject) {
+            request
+                .del('https://shrouded-tundra-7473.herokuapp.com:443/api/messages/' + id + '/')
+                .set('Authorization', 'JWT ' + SessionStore.getToken())
+                .send({
+                    pk: id
+                })
+                .end(function(error, res) {
+                    if (res) {
+                        if (res.status === 204) {
+                            resolve();
+                        } else {
+                            reject();
+                        }
+                    }
+                });
+        });
     }
 };

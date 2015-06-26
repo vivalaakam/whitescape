@@ -132,8 +132,8 @@ body {
     position: relative;
     margin-top: 10px;
     .messageForm-form {
-      width: 100%;
-      height: 100%;
+        width: 100%;
+        height: 100%;
     }
     .messageForm-textarea {
         resize: none;
@@ -185,6 +185,7 @@ body {
 }
 .message {
     padding: 5px 55px 15px 5px;
+    position: relative;
     .message__body {
         color: #494949;
     }
@@ -197,5 +198,28 @@ body {
             opacity: 0.5;
             font-size: 13px;
         }
+    }
+    .message__delete-button {
+        border: none;
+        background-color: initial;
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        padding: 0;
+        display: none;
+        cursor: pointer;
+        &:focus {
+          outline: 0;
+        }
+        .icon-delete {
+            color: #ff7070;
+            font-size: 24px;
+        }
+    }
+
+    &:hover {
+      .message__delete-button {
+        display: block;
+      }
     }
 }

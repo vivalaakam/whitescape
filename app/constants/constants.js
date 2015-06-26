@@ -6,6 +6,7 @@ module.exports = {
         LOGOUT: null,
         UPDATE_PROFILE: null,
         ADD_MESSAGE: null,
-        LOAD_MESSAGES: null
+        LOAD_MESSAGES: null,
+        REMOVE_MESSAGE: null
     })
 };

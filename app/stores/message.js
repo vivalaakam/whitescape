@@ -13,6 +13,13 @@ function _loadMessages(resp) {
     messages = messages.concat(resp);
 }
 
+function _removeMessage(data) {
+    var index = messages.indexOf(data);
+    if (index > -1) {
+        messages.splice(index, 1);
+    }
+}
+
 var MessageStore = assign({}, EventEmitter.prototype, {
 
     emitChange: function() {
@@ -44,6 +51,10 @@ MessageStore.dispatchToken = AppDispatcher.register(function(action) {
             break;
         case ActionTypes.LOAD_MESSAGES:
             _loadMessages(action.data.results);
+            MessageStore.emitChange();
+            break;
+        case ActionTypes.REMOVE_MESSAGE:
+            _removeMessage(action.data);
             MessageStore.emitChange();
             break;
         default:
