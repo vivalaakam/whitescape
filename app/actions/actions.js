@@ -27,5 +27,14 @@ module.exports = {
         AppDispatcher.dispatch({
             type: ActionTypes.LOGOUT,
         });
+    },
+    updateProfile: function(data) {
+      return ApiUtils.updateProfile(data)
+          .then(function(response) {
+              AppDispatcher.dispatch({
+                  type: ActionTypes.UPDATE_PROFILE,
+                  data: response
+              });
+          });
     }
 };

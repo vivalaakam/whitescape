@@ -1,5 +1,4 @@
 @import "icons";
-
 @font-face {
     font-family: "avenir-light";
     src: url("../fonts/avenir.eot");
@@ -29,7 +28,8 @@ body {
         position: relative;
     }
 }
-.signup {
+.signup,
+.update {
     width: 300px;
     height: 300px;
     position: absolute;
@@ -91,43 +91,36 @@ body {
         list-style-type: none;
     }
 }
-
-.messages {
-  .header {
+.header {
     height: 45px;
     background: #ba77ff;
     .container {
-      line-height: 45px;
+        line-height: 45px;
     }
-  }
-
-  .container {
+}
+.container {
     width: 900px;
     margin: 0 auto;
     height: 100%;
     min-height: 45px;
-  }
 }
-
 .logout {
-  .icon-logout {
-    font-size: 24px;
-  }
-}
-
-.right {
-  float: right;
-}
-
-.nav {
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-  li {
-    display: inline-block;
-    padding-left: 35px;
-    &:first-child {
-      padding-left: 0px;
+    .icon-logout {
+        font-size: 24px;
     }
-  }
+}
+.right {
+    float: right;
+}
+.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+        display: inline-block;
+        padding-left: 35px;
+        &:first-child {
+            padding-left: 0;
+        }
+    }
 }

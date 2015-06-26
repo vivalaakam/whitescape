@@ -3,6 +3,7 @@ var actions = require('../actions/actions');
 var Link = require('react-router').Link;
 var SessionStore = require('../stores/session');
 var Router = require('react-router');
+var Header = require('./header.jsx');
 
 var Signup = React.createClass({
     mixins: [Router.Navigation],
@@ -10,43 +11,27 @@ var Signup = React.createClass({
         SessionStore.addChangeListener(this._onSubmit);
 
     },
-    _onSubmit: function () {
-        this.transitionTo('messages');
-    },
+    _onSubmit: function () {},
     _submit: function (e) {
         e.preventDefault();
         var firstName = this.refs.firstName.getDOMNode().value;
         var lastName = this.refs.lastName.getDOMNode().value;
-        var email = this.refs.email.getDOMNode().value;
-        var password = this.refs.password.getDOMNode().value;
         var self = this;
-        actions.signup({
+        actions.updateProfile({
             first_name: firstName,
-            last_name: lastName,
-            email: email,
-            password: password
-        }).catch(function() {
-
-        });
+            last_name: lastName
+        }). catch (function () {});
 
     },
     render: function () {
         return (
             <div className="background">
-                <div className="already_exists">
-                    <span>Already have an account
-                    </span>
-                    <Link to="/">
-                        Sign In
-                    </Link>
-                </div>
-                <div className="signup">
+                <Header page="Settings"/>
+                <div className="update">
                     <form onSubmit={this._submit}>
                         <input className="inp" placeholder="First name" ref="firstName" type="text"/>
                         <input className="inp" placeholder="Last name" ref="lastName" type="text"/>
-                        <input className="inp" placeholder="Email" ref="email" type="text"/>
-                        <input className="inp" placeholder="Password" ref="password" type="text"/>
-                        <button className="btn">Create accout</button>
+                        <button className="btn">Save</button>
                     </form>
                 </div>
             </div>

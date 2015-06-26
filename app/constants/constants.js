@@ -3,6 +3,7 @@ module.exports = {
     ActionTypes: keyMirror({
         SIGNUP: null,
         LOGIN: null,
-        LOGOUT : null
+        LOGOUT : null,
+        UPDATE_PROFILE : null
     })
 };

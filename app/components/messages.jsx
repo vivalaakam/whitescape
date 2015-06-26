@@ -5,7 +5,7 @@ var Messages = React.createClass({
     render: function () {
         return (
             <div className="messages">
-                <Header />
+                <Header page="Messages"/>
                 <div className="container"></div>
             </div>
         );

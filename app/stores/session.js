@@ -10,6 +10,11 @@ function _setSession(data) {
     localStorage.setItem('session', JSON.stringify(session));
 }
 
+function _updateSession(data) {
+    session.profile = data;
+    localStorage.setItem('session', JSON.stringify(session));
+}
+
 function _restoreSession() {
     session = JSON.parse(localStorage.getItem('session'));
     console.log(session);
@@ -54,6 +59,10 @@ SessionStore.dispatchToken = AppDispatcher.register(function(action) {
             break;
         case ActionTypes.LOGOUT:
             _clearSession();
+            SessionStore.emitChange();
+            break;
+        case ActionTypes.UPDATE_PROFILE:
+            _updateSession(action.data);
             SessionStore.emitChange();
             break;
         default:
