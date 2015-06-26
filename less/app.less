@@ -209,17 +209,43 @@ body {
         display: none;
         cursor: pointer;
         &:focus {
-          outline: 0;
+            outline: 0;
         }
         .icon-delete {
             color: #ff7070;
             font-size: 24px;
         }
     }
-
     &:hover {
-      .message__delete-button {
-        display: block;
-      }
+        .message__delete-button {
+            display: block;
+        }
+    }
+}
+.messages {
+    .messages__load {
+        .messages__load-button {
+            border: none;
+            background-color: inherit;
+            display: block;
+            text-align: center;
+            width: 100%;
+            cursor: pointer;
+            &:focus {
+                outline: 0;
+            }
+
+            &:hover {
+              color: #fff;
+              background-color:  #ba77ff;
+              .icon-scroll {
+                color: #fff;
+              }
+            }
+
+            .icon-scroll {
+                color: #ba77ff;
+            }
+        }
     }
 }

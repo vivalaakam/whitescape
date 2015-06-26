@@ -17,13 +17,27 @@ var Messages = React.createClass({
     },
     _onChange: function () {
         this.setState({
-            messages: MessageStore.getMessages()
+            messages: MessageStore.getMessages(),
+            next: MessageStore.getNext()
         });
+    },
+    _loadMore: function () {
+        if (this.state.next) {
+            actions.loadMessages(this.state.next);
+        }
     },
     render: function () {
         var messages = this.state.messages.map(function (message) {
             return <Message message={message}/>;
         });
+
+        var next_page = this.state.next ? (
+                <div className="messages__load">
+                    <button className="messages__load-button" onClick={this._loadMore}>
+                        <span className="icon-scroll"></span>
+                    </button>
+                </div>
+        ) : null;
 
         return (
             <div className="messages">
@@ -33,6 +47,7 @@ var Messages = React.createClass({
                     <div className="messages__list">
                         {messages}
                     </div>
+                        {next_page}
                 </div>
             </div>
         );

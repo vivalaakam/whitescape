@@ -78,7 +78,7 @@ module.exports = {
     loadMessages: function(page, page_size) {
         return new Promise(function(resolve, reject) {
             request
-                .get('https://shrouded-tundra-7473.herokuapp.com:443/api/messages/')
+                .get('https://shrouded-tundra-7473.herokuapp.com:443/api/messages/?page=' + page)
                 .set('Authorization', 'JWT ' + SessionStore.getToken())
                 .send({
                     page: page,

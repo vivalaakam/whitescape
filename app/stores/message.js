@@ -3,14 +3,37 @@ var assign = require('object-assign');
 var ActionTypes = require('../constants/constants').ActionTypes;
 var AppDispatcher = require('../dispatcher/dispatcher');
 var CHANGE_EVENT = 'change';
-var messages = [];
+var messages = [],
+    message_ids = [];
+next = null;
 
-function _addMessage(data) {
-    messages.unshift(data);
+function _next(url) {
+    if (url) {
+        var re = /\?page=(\d+)/;
+        var page = re.exec(url);
+        next = page[1];
+    } else {
+        next = false;
+    }
+}
+
+
+function _addMessage(data, rev) {
+    if (rev) {
+        messages.push(data);
+        message_ids.push(data.id);
+    } else {
+        messages.unshift(data);
+        message_ids.unshift(data.id);
+    }
 }
 
 function _loadMessages(resp) {
-    messages = messages.concat(resp);
+    resp.forEach(function(message) {
+        if (message_ids.indexOf(message.id) === -1) {
+            _addMessage(message, true);
+        }
+    });
 }
 
 function _removeMessage(data) {
@@ -39,6 +62,9 @@ var MessageStore = assign({}, EventEmitter.prototype, {
             index = 0;
         }
         return messages[index];
+    },
+    getNext: function() {
+        return next;
     }
 });
 
@@ -51,6 +77,7 @@ MessageStore.dispatchToken = AppDispatcher.register(function(action) {
             break;
         case ActionTypes.LOAD_MESSAGES:
             _loadMessages(action.data.results);
+            _next(action.data.next);
             MessageStore.emitChange();
             break;
         case ActionTypes.REMOVE_MESSAGE:
