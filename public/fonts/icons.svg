@@ -5,7 +5,7 @@
 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20141231 at Fri Jun 26 18:19:14 2015
+Created by FontForge 20141231 at Fri Jun 26 21:02:43 2015
  By Andrey Makarov
 Copyright (c) 2015, Andrey Makarov
 </metadata>
@@ -22,7 +22,7 @@ Copyright (c) 2015, Andrey Makarov
     bbox="0 -64 512 448"
     underline-thickness="25.6"
     underline-position="-51.2"
-    unicode-range="U+F101-F10E"
+    unicode-range="U+F101-F10F"
   />
     <missing-glyph />
     <glyph glyph-name="uniF101" unicode="&#xf101;" horiz-adv-x="498" 
@@ -60,5 +60,7 @@ l10 -70l7 -4c14 -7 28 -14 38 -22l7 -6l67 27l44 -77l-56 -46l3 -10c1 -4 2 -9 2 -19
 d="M270 -60l21 22l-247 230l247 230l-21 22l-270 -252z" />
     <glyph glyph-name="uniF10E" unicode="&#xf10e;" 
 d="M30 192c0 125 101 226 226 226s226 -101 226 -226s-101 -226 -226 -226s-226 101 -226 226zM0 192c0 -141 115 -256 256 -256s256 115 256 256s-115 256 -256 256s-256 -115 -256 -256zM271 92l-20 23l84 75l-84 74l20 23l109 -97zM346 208v-31h-183v31h183z" />
+    <glyph glyph-name="uniF10F" unicode="&#xf10f;" 
+d="M256 -34c-125 0 -226 101 -226 226s101 226 226 226s226 -101 226 -226s-101 -226 -226 -226zM256 -64c141 0 256 115 256 256s-115 256 -256 256s-256 -115 -256 -256s115 -256 256 -256zM358 131v30h-120v138h-30v-168h150z" />
   </font>
 </defs></svg>

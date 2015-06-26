@@ -17,7 +17,6 @@ function _updateSession(data) {
 
 function _restoreSession() {
     session = JSON.parse(localStorage.getItem('session'));
-    console.log(session);
 }
 
 function _clearSession() {

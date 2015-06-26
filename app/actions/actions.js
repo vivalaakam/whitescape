@@ -29,12 +29,34 @@ module.exports = {
         });
     },
     updateProfile: function(data) {
-      return ApiUtils.updateProfile(data)
-          .then(function(response) {
-              AppDispatcher.dispatch({
-                  type: ActionTypes.UPDATE_PROFILE,
-                  data: response
-              });
-          });
+        return ApiUtils.updateProfile(data)
+            .then(function(response) {
+                AppDispatcher.dispatch({
+                    type: ActionTypes.UPDATE_PROFILE,
+                    data: response
+                });
+            });
+    },
+    addMessage: function(message) {
+        return ApiUtils.addMessage(message)
+            .then(function(response) {
+                AppDispatcher.dispatch({
+                    type: ActionTypes.ADD_MESSAGE,
+                    data: response
+                });
+            });
+    },
+    loadMessages: function(page) {
+        if (!page) {
+            page = 1;
+        }
+        return ApiUtils.loadMessages(page, 10)
+            .then(function(response) {
+                AppDispatcher.dispatch({
+                    type: ActionTypes.LOAD_MESSAGES,
+                    data: response,
+                    page: page
+                });
+            });
     }
 };
