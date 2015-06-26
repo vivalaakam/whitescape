@@ -27,7 +27,7 @@ var Messages = React.createClass({
         var sclass = this.state.err ? "messageForm-span error" : "messageForm-span";
         return (
             <div className="messageForm">
-                <form onSubmit={this._onSubmit}>
+                <form className="messageForm-form" onSubmit={this._onSubmit}>
                     <textarea className="messageForm-textarea" onKeyUp={this._onKeyup} ref="message" resize="none"></textarea>
                     <button className="messageForm-button" disabled={this.state.err}>
                         <span className="icon-submit"></span>
