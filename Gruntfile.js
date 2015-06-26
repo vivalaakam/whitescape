@@ -40,13 +40,31 @@ module.exports = function(grunt) {
                 src: ['./app/app.js'],
                 dest: './public/javascripts/app.js'
             }
-        }
+        },
+        webfont: {
+            icons: {
+                src: 'icons/*.svg',
+                dest: 'public/fonts',
+                destCss: 'less',
+                options: {
+                    hashes: false,
+                    syntax: "bootstrap",
+                    stylesheet: "less",
+                    relativeFontPath: "/fonts",
+                    htmlDemo: false,
+                    templateOptions: {
+                        baseClass: 'icon-'
+                    }
+                }
+            }
+        },
     });
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-webfont');
 
 
     grunt.registerTask('default', ['browserify', 'less:development', 'connect', 'watch']);

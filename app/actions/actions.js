@@ -17,10 +17,15 @@ module.exports = {
     login: function(data) {
         return ApiUtils.login(data)
             .then(function(response) {
-              AppDispatcher.dispatch({
-                  type: ActionTypes.LOGIN,
-                  data: response
-              });
+                AppDispatcher.dispatch({
+                    type: ActionTypes.LOGIN,
+                    data: response
+                });
             });
+    },
+    logout: function() {
+        AppDispatcher.dispatch({
+            type: ActionTypes.LOGOUT,
+        });
     }
 };

@@ -13,9 +13,17 @@ var Header = React.createClass({
         return (
             <div className="header">
                 <div className="container">
-                    <span className="name">
-                        {this.state.user.first_name} {this.state.user.last_name}
-                    </span>
+                    <ul className="right nav">
+                        <li className="name">
+                            {this.state.user.first_name}
+                                {this.state.user.last_name}
+                        </li>
+                        <li>
+                            <Link to="/signout" className="logout">
+                                <span className="icon-logout"></span>
+                            </Link>
+                        </li>
+                    </ul>
                 </div>
             </div>
         );

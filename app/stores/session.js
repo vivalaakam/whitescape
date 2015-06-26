@@ -15,6 +15,11 @@ function _restoreSession() {
     console.log(session);
 }
 
+function _clearSession() {
+    session = {};
+    localStorage.setItem('session', JSON.stringify({}));
+}
+
 _restoreSession();
 
 var SessionStore = assign({}, EventEmitter.prototype, {
@@ -45,6 +50,10 @@ SessionStore.dispatchToken = AppDispatcher.register(function(action) {
         case ActionTypes.SIGNUP:
         case ActionTypes.LOGIN:
             _setSession(action.data);
+            SessionStore.emitChange();
+            break;
+        case ActionTypes.LOGOUT:
+            _clearSession();
             SessionStore.emitChange();
             break;
         default:
