@@ -26,7 +26,7 @@ var Signup = React.createClass({
     render: function () {
         return (
             <div className="background">
-                <Header page="Settings"/>
+                <Header page="Settings" icon="icon-settings"/>
                 <div className="update">
                     <form onSubmit={this._submit}>
                         <input className="inp" placeholder="First name" ref="firstName" type="text"/>

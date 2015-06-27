@@ -25,6 +25,7 @@ var Messages = React.createClass({
     },
     render: function () {
         var sclass = this.state.err ? "messageForm-span error" : "messageForm-span";
+        var total = this.state.total > 0 ? <span className={sclass}>{this.state.total}</span>:null;
         return (
             <div className="messageForm">
                 <form className="messageForm-form" onSubmit={this._onSubmit}>
@@ -32,7 +33,7 @@ var Messages = React.createClass({
                     <button className="messageForm-button" disabled={this.state.err}>
                         <span className="icon-submit"></span>
                     </button>
-                    <span className={sclass}>{this.state.total}</span>
+                    {total}
                 </form>
             </div>
         );

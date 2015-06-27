@@ -4,7 +4,7 @@ var Link = require('react-router').Link;
 var Navigate = React.createClass({
     getInitialState: function () {
         return {
-            open: false,
+            open: false
         };
     },
     _toggle: function () {
@@ -24,12 +24,15 @@ var Navigate = React.createClass({
                     <Link className="icon-lists" to="/messages">
                         My messages
                     </Link>
+                    <Link className="icon-edit" to="/create">
+                        New message
+                    </Link>
                     <Link className="icon-settings" to="/settings">
                         Settings
                     </Link>
-
-                    <Link to="/signout" className="icon-logout">
-                      {this.props.user.first_name} {this.props.user.last_name}
+                    <Link className="icon-logout" to="/signout">
+                        {this.props.user.first_name}
+                            {this.props.user.last_name}
                     </Link>
                 </nav>
             </div>

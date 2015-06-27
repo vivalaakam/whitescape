@@ -41,7 +41,7 @@ var Messages = React.createClass({
 
         return (
             <div className="messages">
-                <Header page="Messages"/>
+                <Header page="Messages" icon="icon-lists"/>
                 <div className="container">
                     <MessageForm />
                     <div className="messages__list">

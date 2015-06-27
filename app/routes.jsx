@@ -8,6 +8,7 @@ var Signin = require('./components/signin.jsx');
 var Signout = require('./components/signout.jsx');
 var Messages = require('./components/messages.jsx');
 var Settings = require('./components/settings.jsx');
+var NewMessage = require('./components/newmessage.jsx');
 
 var routes = (
         <Route handler={App} path="/">
@@ -16,6 +17,7 @@ var routes = (
             <Route handler={Signout} name="signout" path="/signout"/>
             <Route handler={Messages} name="messages" path="/messages"/>
             <Route handler={Settings} name="settings" path="/settings"/>
+            <Route handler={NewMessage} name="newmessage" path="/create"/>
         </Route>
 );
 module.exports = routes;
