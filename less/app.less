@@ -20,14 +20,11 @@ body {
 }
 #main {
     height: 100%;
-    .content {
-        height: 100%;
-    }
-    .background {
-        height: 100%;
-        background: data-uri('/images/bg_desktop.png') no-repeat 100% 0;
-        position: relative;
-    }
+}
+.content {
+    height: 100%;
+    background: data-uri('/images/bg_desktop.png') no-repeat 100% 0;
+    position: relative;
 }
 .signup,
 .update {
@@ -108,6 +105,25 @@ body {
 .logout {
     .icon-logout {
         font-size: 24px;
+    }
+}
+.login {
+    width: 300px;
+    margin: 0 auto;
+    .login__logo {
+        display: block;
+        margin: 0 auto;
+        padding: 15px;
+        .login__logo-img {
+            max-width: 100%;
+        }
+    }
+    .login__create {
+        text-align: center;
+        margin-top: 20px;
+        .login__create-a {
+            text-decoration: none;
+        }
     }
 }
 .right {
@@ -320,5 +336,50 @@ body {
             left: 50%;
             margin-left: -20px;
         }
+    }
+}
+.input {
+    background-color: #fff;
+    color: rgba(29, 29, 38, 0.5);
+    position: relative;
+    &:before {
+        position: absolute;
+        top: 12px;
+        left: 8px;
+    }
+    .inp {
+        padding-left: 32px;
+    }
+}
+@media (max-width: 650px) {
+    .container {
+        width: 100%;
+        .right.nav {
+            display: none;
+        }
+    }
+    .login {
+        .login__logo {
+            max-width: 300px;
+        }
+    }
+    .messages {
+        .messageForm {
+            display: none;
+        }
+    }
+    .message {
+        padding: 5px;
+    }
+    .signup,
+    .login,
+    .update {
+        width: 100%;
+        left: auto;
+        margin-left: 0;
+        padding: 10px;
+    }
+    .newmessage .messageForm {
+        padding: 10px;
     }
 }

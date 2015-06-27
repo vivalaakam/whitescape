@@ -63,17 +63,22 @@ var Signin = React.createClass({
         ) : null;
 
         return (
-            <div className="background">
-                <div className="create">
-                    <Link to="/signup">Create account</Link>
+            <div className="login">
+                <div className="login__logo">
+                    <img className="login__logo-img" src="/images/logo.png"/>
                 </div>
-                <div className="signup">
-                    <form onSubmit={this._submit}>
+                <form onSubmit={this._submit}>
+                    <div className="input icon-email">
                         <input className="inp" onChange={this._reset} placeholder="Email" ref="email" type="text"/>
+                    </div>
+                    <div className="input icon-password">
                         <input className="inp" onChange={this._reset} placeholder="Password" ref="password" type="password"/>
-                        <button className="btn">Create accout</button>
-                        {errors}
-                    </form>
+                    </div>
+                    <button className="btn">Sign in</button>
+                    {errors}
+                </form>
+                <div className="login__create">
+                    <Link className="login__create-a" to="/signup">Create account</Link>
                 </div>
             </div>
         );
