@@ -2,6 +2,7 @@ var React = require('react');
 var Link = require('react-router').Link;
 var SessionStore = require('../stores/session');
 var Router = require('react-router');
+var Navigate = require('./navigate.jsx');
 
 var Header = React.createClass({
     getInitialState: function () {
@@ -21,7 +22,6 @@ var Header = React.createClass({
         return (
             <div className="header">
                 <div className="container">
-                    <span>{this.props.page}</span>
                     <ul className="right nav">
                         <li className="name">
                             {this.state.user.first_name}
@@ -37,6 +37,12 @@ var Header = React.createClass({
                                 <span className="icon-logout"></span>
                             </Link>
                         </li>
+                    </ul>
+                    <ul className="nav">
+                        <li>
+                            <Navigate user={this.state.user} />
+                        </li>
+                        <li>{this.props.page}</li>
                     </ul>
                 </div>
             </div>

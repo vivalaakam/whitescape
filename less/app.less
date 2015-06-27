@@ -234,18 +234,60 @@ body {
             &:focus {
                 outline: 0;
             }
-
             &:hover {
-              color: #fff;
-              background-color:  #ba77ff;
-              .icon-scroll {
                 color: #fff;
-              }
+                background-color: #ba77ff;
+                .icon-scroll {
+                    color: #fff;
+                }
             }
-
             .icon-scroll {
                 color: #ba77ff;
             }
+        }
+    }
+}
+.leftmenu {
+    .leftmenu-nav {
+        position: fixed;
+        top: 45px;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        width: 60px;
+        background: #ba77ff;
+        -webkit-transform: translateX(-60px);
+        -moz-transform: translateX(-60px);
+        transform: translateX(-60px);
+        -webkit-transition: -webkit-transform 0.3s, width 0.3s;
+        -moz-transition: -moz-transform 0.3s, width 0.3s;
+        transition: transform 0.3s, width 0.3s;
+        z-index: 100;
+        a {
+            display: block;
+            text-decoration: none;
+            padding: 10px;
+            box-sizing: border-box;
+            height: 45px;
+            line-height: 25px;
+            border-bottom: 1px solid #fff;
+            margin: 0 10px;
+            &:before {
+                padding-right: 5px;
+            }
+        }
+        &.leftmenu-open {
+            width: 340px;
+            -webkit-transform: translateX(0px);
+            -moz-transform: translateX(0px);
+            transform: translateX(0px);
+        }
+    }
+    .leftmenu__toggler {
+        border: none;
+        background-color: inherit;
+        &:focus {
+            outline: 0;
         }
     }
 }
