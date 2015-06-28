@@ -2,6 +2,11 @@
 @import "variables";
 @import "login";
 @import "signup";
+@import "messageForm";
+@import "message";
+@import "messages";
+@import "newmessage";
+
 @font-face {
     font-family: "avenir-light";
     src: url("../fonts/avenir.eot");
@@ -29,7 +34,6 @@ body {
     background: data-uri('/images/bg_desktop.png') no-repeat 100% 0;
     position: relative;
 }
-.signup,
 .update {
     width: 300px;
     height: 300px;
@@ -58,7 +62,6 @@ body {
     font-size: 18px;
     border: none;
 }
-
 .error {
     position: relative;
     top: -45px;
@@ -90,7 +93,6 @@ body {
         font-size: 24px;
     }
 }
-
 .right {
     float: right;
 }
@@ -106,128 +108,8 @@ body {
         }
     }
 }
-.messageForm {
-    height: 90px;
-    border: 1px solid #ba77ff;
-    padding: 5px 55px 5px 5px;
-    position: relative;
-    margin-top: 10px;
-    .messageForm-form {
-        width: 100%;
-        height: 100%;
-    }
-    .messageForm-textarea {
-        resize: none;
-        width: 100%;
-        height: 100%;
-        color: #494949;
-        border: none;
-        &:focus {
-            outline: 0;
-        }
-    }
-    .messageForm-button {
-        position: absolute;
-        width: 40px;
-        height: 40px;
-        font-size: 36px;
-        padding: 0;
-        border: none;
-        background-color: initial;
-        color: red;
-        bottom: 5px;
-        right: 10px;
-        &:focus {
-            outline: 0;
-        }
-        &:disabled {
-            .icon-submit {
-                color: #ff7070;
-            }
-        }
-        .icon-submit {
-            font-size: 36px;
-            color: #ba77ff;
-        }
-    }
-    .messageForm-span {
-        font-size: 24px;
-        position: absolute;
-        color: #ba77ff;
-        width: 40px;
-        right: 10px;
-        top: 5px;
-        text-align: center;
-        &.error {
-            color: #ff7070;
-            background-color: initial;
-        }
-    }
-}
-.message {
-    padding: 5px 55px 15px 5px;
-    position: relative;
-    .message__body {
-        color: #494949;
-    }
-    .message__time {
-        line-height: 13px;
-        vertical-align: middle;
-        &,
-        & * {
-            color: #1e1e1e;
-            opacity: 0.5;
-            font-size: 13px;
-        }
-    }
-    .message__delete-button {
-        border: none;
-        background-color: initial;
-        position: absolute;
-        right: 10px;
-        top: 5px;
-        padding: 0;
-        display: none;
-        cursor: pointer;
-        &:focus {
-            outline: 0;
-        }
-        .icon-delete {
-            color: #ff7070;
-            font-size: 24px;
-        }
-    }
-    &:hover {
-        .message__delete-button {
-            display: block;
-        }
-    }
-}
-.messages {
-    .messages__load {
-        .messages__load-button {
-            border: none;
-            background-color: inherit;
-            display: block;
-            text-align: center;
-            width: 100%;
-            cursor: pointer;
-            &:focus {
-                outline: 0;
-            }
-            &:hover {
-                color: #fff;
-                background-color: #ba77ff;
-                .icon-scroll {
-                    color: #fff;
-                }
-            }
-            .icon-scroll {
-                color: #ba77ff;
-            }
-        }
-    }
-}
+
+
 .leftmenu {
     .leftmenu-nav {
         position: fixed;
@@ -272,37 +154,7 @@ body {
         }
     }
 }
-.newmessage {
-    .messageForm {
-        height: 100%;
-        border: none;
-        padding: 0;
-        .messageForm-form {
-            height: 90px;
-        }
-        .messageForm-span {
-            font-size: 24px;
-            position: absolute;
-            color: #ba77ff;
-            width: 40px;
-            right: 10px;
-            top: 120px;
-            text-align: center;
-            left: 50%;
-            padding: 40px 30px;
-            width: 100px;
-            margin-left: -50px;
-            background-color: #fff;
-            border-radius: 50px;
-            height: 100px;
-        }
-        .messageForm-button {
-            top: 240px;
-            left: 50%;
-            margin-left: -20px;
-        }
-    }
-}
+
 .input {
     background-color: #fff;
     color: rgba(29, 29, 38, 0.5);
@@ -336,6 +188,10 @@ body {
     .message {
         padding: 5px;
     }
+    .update {
+      top: 45px;
+    }
+
     .signup,
     .login,
     .update {

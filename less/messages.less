@@ -1,0 +1,36 @@
+.messages {
+    .messages__load {
+        .messages__load-button {
+            border: none;
+            background-color: inherit;
+            display: block;
+            text-align: center;
+            width: 100%;
+            cursor: pointer;
+            &:focus {
+                outline: 0;
+            }
+            &:hover {
+                color: #fff;
+                background-color: #ba77ff;
+                .icon-scroll {
+                    color: #fff;
+                }
+            }
+            .icon-scroll {
+                color: #ba77ff;
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .messages {
+        .messages__list {
+          padding: 10px;
+        }
+        .messageForm {
+            display: none;
+        }
+    }
+}
