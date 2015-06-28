@@ -4,14 +4,32 @@ var ApiUtils = require('../utils/apiutils');
 
 module.exports = {
     signup: function(data) {
-        return ApiUtils.signup(data)
+        ApiUtils.signup(data)
             .then(function(response) {
                 AppDispatcher.dispatch({
                     type: ActionTypes.SIGNUP,
                     data: response
                 });
             }, function(data) {
-                console.log(data);
+                var errors = [];
+
+                for (var key in data) {
+                    var value;
+                    switch (key) {
+                        case 'email':
+                        case 'password':
+                            value = 'Field ' + key + ' can`t be empty';
+                            break;
+                    }
+                    errors.push({
+                        name: key,
+                        value: value
+                    });
+                }
+                AppDispatcher.dispatch({
+                    type: ActionTypes.SET_ERRORS,
+                    errors: errors
+                });
             });
     },
     login: function(data) {
@@ -40,7 +58,6 @@ module.exports = {
                         value: value
                     });
                 }
-                console.log(errors);
                 AppDispatcher.dispatch({
                     type: ActionTypes.SET_ERRORS,
                     errors: errors

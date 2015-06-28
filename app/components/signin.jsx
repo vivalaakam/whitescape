@@ -32,7 +32,6 @@ var Signin = React.createClass({
         this.transitionTo('messages');
     },
     _onError: function (data) {
-        console.log(ErrorStore.getErrors());
         this.setState({
             errors: ErrorStore.getErrors()
         });
