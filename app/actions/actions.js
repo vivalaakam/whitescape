@@ -15,11 +15,35 @@ module.exports = {
             });
     },
     login: function(data) {
-        return ApiUtils.login(data)
+        ApiUtils.login(data)
             .then(function(response) {
                 AppDispatcher.dispatch({
                     type: ActionTypes.LOGIN,
                     data: response
+                });
+            }, function(data) {
+                var errors = [];
+
+                for (var key in data) {
+                    var value;
+                    switch (key) {
+                        case 'non_field_errors':
+                            value = data[key];
+                            break;
+                        case 'email':
+                        case 'password':
+                            value = 'Field ' + key + ' can`t be empty';
+                            break;
+                    }
+                    errors.push({
+                        name: key,
+                        value: value
+                    });
+                }
+                console.log(errors);
+                AppDispatcher.dispatch({
+                    type: ActionTypes.SET_ERRORS,
+                    errors: errors
                 });
             });
     },
@@ -60,12 +84,12 @@ module.exports = {
             });
     },
     removeMessage: function(message) {
-      return ApiUtils.removeMessage(message.id)
-          .then(function(response) {
-              AppDispatcher.dispatch({
-                  type: ActionTypes.REMOVE_MESSAGE,
-                  data: message,
-              });
-          });
+        return ApiUtils.removeMessage(message.id)
+            .then(function(response) {
+                AppDispatcher.dispatch({
+                    type: ActionTypes.REMOVE_MESSAGE,
+                    data: message,
+                });
+            });
     }
 };

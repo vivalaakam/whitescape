@@ -5,7 +5,7 @@
     "dependencies": {
         "flux": "^2.0.1",
         "object-assign": "^1.0.0",
-        "react": "~0.13",
+        "react": "^0.13.3",
         "react-router": "~0.13",
         "superagent": "^0.21.0",
         "keymirror": "~0.1.0",
@@ -19,6 +19,17 @@
         "grunt-contrib-copy": "~0.8",
         "grunt-webfont": "~0.4.8",
         "grunt-react": "~0.12",
-        "promise" : "~7.0"
+        "promise": "~7.0",
+        "react-tools": "^0.13.3",
+        "jest-cli": "~0.4.13"
+    },
+    "jest": {
+        "scriptPreprocessor": "<rootDir>/preprocessor.js",
+        "unmockedModulePathPatterns": [
+            "node_modules/react"
+        ]
+    },
+    "scripts": {
+        "test": "node node_modules/jest-cli/bin/jest.js"
     }
 }

@@ -37,7 +37,7 @@ module.exports = function(grunt) {
                 transform: [require('grunt-react').browserify]
             },
             client: {
-                src: ['./app/app.js'],
+                src: ['./app/app.jsx'],
                 dest: './public/javascripts/app.js'
             }
         },
@@ -57,7 +57,7 @@ module.exports = function(grunt) {
                     }
                 }
             }
-        },
+        }
     });
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
@@ -65,6 +65,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-webfont');
+    grunt.loadNpmTasks('grunt-jest');
 
 
     grunt.registerTask('default', ['browserify', 'less:development', 'connect', 'watch']);

@@ -7,21 +7,31 @@ var session = {};
 
 function _setSession(data) {
     session = data;
-    localStorage.setItem('session', JSON.stringify(session));
+    try {
+        localStorage.setItem('session', JSON.stringify(session));
+    } catch (exception) {}
 }
 
 function _updateSession(data) {
     session.profile = data;
-    localStorage.setItem('session', JSON.stringify(session));
+    try {
+        localStorage.setItem('session', JSON.stringify(session));
+    } catch (exception) {}
 }
 
 function _restoreSession() {
-    session = JSON.parse(localStorage.getItem('session'));
+    try {
+        session = JSON.parse(localStorage.getItem('session'));
+    } catch (exception) {
+        session = {};
+    }
 }
 
 function _clearSession() {
     session = {};
-    localStorage.setItem('session', JSON.stringify({}));
+    try {
+        localStorage.setItem('session', JSON.stringify({}));
+    } catch (exception) {}
 }
 
 _restoreSession();
