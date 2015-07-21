@@ -36,12 +36,7 @@ var Signup = React.createClass({
         var email = this.refs.email.getDOMNode().value;
         var password = this.refs.password.getDOMNode().value;
         var self = this;
-        actions.signup({
-            first_name: firstName,
-            last_name: lastName,
-            email: email,
-            password: password
-        });
+        actions.signup(email, password, lastName, firstName);
 
     },
     _reset: function() {

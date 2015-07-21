@@ -3,8 +3,13 @@ var ActionTypes = require('../constants/constants').ActionTypes;
 var ApiUtils = require('../utils/apiutils');
 
 module.exports = {
-    signup: function(data) {
-        ApiUtils.signup(data)
+    signup: function(email, password, lastName, firstName) {
+        ApiUtils.signup({
+                email: email,
+                password: password,
+                firstName: firstName,
+                lastName: lastName
+            })
             .then(function(response) {
                 AppDispatcher.dispatch({
                     type: ActionTypes.SIGNUP,
