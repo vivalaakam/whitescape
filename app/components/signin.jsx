@@ -9,50 +9,47 @@ var Link = Router.Link;
 var Signin = React.createClass({
     mixins: [Router.Navigation],
     statics: {
-        willTransitionTo: function (transition) {
+        willTransitionTo: function(transition) {
             if (SessionStore.isLoggedIn()) {
                 transition.redirect("/messages");
             }
         }
     },
-    getInitialState: function () {
+    getInitialState: function() {
         return {
             errors: []
         };
     },
-    componentDidMount: function () {
+    componentDidMount: function() {
         SessionStore.addChangeListener(this._onSubmit);
         ErrorStore.addChangeListener(this._onError);
     },
-    componentWillUnmount: function () {
+    componentWillUnmount: function() {
         SessionStore.removeChangeListener(this._onSubmit);
         ErrorStore.removeChangeListener(this._onError);
     },
-    _onSubmit: function () {
+    _onSubmit: function() {
         this.transitionTo('messages');
     },
-    _onError: function (data) {
+    _onError: function(data) {
         this.setState({
             errors: ErrorStore.getErrors()
         });
     },
-    _submit: function (e) {
+    _submit: function(e) {
         e.preventDefault();
         var email = this.refs.email.getDOMNode().value;
         var password = this.refs.password.getDOMNode().value;
         var self = this;
-        actions.login({
-            email: email,
-            password: password
-        });
+        actions.login(email, password);
     },
-    _reset: function () {
+    _reset: function() {
         this.setState({
             errors: []
         });
     },
-    renderError: function () {
-        return this.state.errors.map(function (error) {
+    renderError: function() {
+        return this.state.errors.map(function(error) {
             return (
                 <li>
                     {error.value}
@@ -60,15 +57,15 @@ var Signin = React.createClass({
             );
         });
     },
-    render: function () {
+    render: function() {
         var nav = this.state.errors.length ? (
-                <div className="login__errors">
-                    <ul>{this.renderError()}</ul>
-                </div>
+            <div className="login__errors">
+                <ul>{this.renderError()}</ul>
+            </div>
         ) : (
-                <div className="login__submit">
-                    <button className="btn">Sign in</button>
-                </div>
+            <div className="login__submit">
+                <button className="btn">Sign in</button>
+            </div>
         );
 
         return (
@@ -76,14 +73,14 @@ var Signin = React.createClass({
                 <div className="login__logo">
                     <img className="login__logo-img" src="/images/logo.png"/>
                 </div>
-                <form onSubmit={this._submit}>
+                <form className="login__form" onSubmit={this._submit}>
                     <div className="input icon-email">
-                        <input className="inp" onChange={this._reset} placeholder="Email" ref="email" type="text"/>
+                        <input className="inp login__form-email" onChange={this._reset} placeholder="Email" ref="email" type="text"/>
                     </div>
                     <div className="input icon-password">
-                        <input className="inp" onChange={this._reset} placeholder="Password" ref="password" type="password"/>
+                        <input className="inp login__form-password" onChange={this._reset} placeholder="Password" ref="password" type="password"/>
                     </div>
-                        {nav}
+                    {nav}
                 </form>
                 <div className="login__create">
                     <Link className="login__create-a" to="/signup">Create account</Link>

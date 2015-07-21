@@ -32,8 +32,11 @@ module.exports = {
                 });
             });
     },
-    login: function(data) {
-        ApiUtils.login(data)
+    login: function(email, password) {
+        ApiUtils.login({
+                email: email,
+                password: password
+            })
             .then(function(response) {
                 AppDispatcher.dispatch({
                     type: ActionTypes.LOGIN,

@@ -25,7 +25,21 @@ function _removeError(row) {
 }
 
 var ErrorStore = assign({}, EventEmitter.prototype, {
-
+    _errors: [],
+    _addError: function(data) {
+        this._errors.push(data);
+    },
+    _removeError: function(row) {
+        this._errors = this._errors.filter(function(error) {
+            return row.name !== error.name;
+        });
+    },
+    _setErrors: function(data) {
+        if (!data) {
+            data = [];
+        }
+        this._errors = data;
+    },
     emitChange: function() {
         this.emit(CHANGE_EVENT);
     },
@@ -36,7 +50,7 @@ var ErrorStore = assign({}, EventEmitter.prototype, {
         this.removeListener(CHANGE_EVENT, callback);
     },
     getErrors: function() {
-        return errors;
+        return this._errors;
     },
 });
 
@@ -44,24 +58,22 @@ ErrorStore.dispatchToken = AppDispatcher.register(function(action) {
 
     switch (action.type) {
         case ActionTypes.ADD_ERROR:
-            _addError(action.error);
+            ErrorStore._addError(action.error);
             ErrorStore.emitChange();
             break;
         case ActionTypes.SET_ERRORS:
-            console.log(action.errors);
-            _setErrors(action.errors);
+            ErrorStore._setErrors(action.errors);
             ErrorStore.emitChange();
             break;
         case ActionTypes.RESET_ERRORS:
-            _setErrors();
+            ErrorStore._setErrors();
             ErrorStore.emitChange();
             break;
         case ActionTypes.REMOVE_ERROR:
-            _removeError(action.data);
+            ErrorStore._removeError(action.data);
             ErrorStore.emitChange();
             break;
         default:
-            // do nothing
     }
 
 });

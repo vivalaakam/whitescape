@@ -1,6 +1,6 @@
 {
     "name": "whitespace",
-    "version": "0.0.2",
+    "version": "0.1.1",
     "private": true,
     "dependencies": {
         "flux": "^2.0.1",
