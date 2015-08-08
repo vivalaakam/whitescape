@@ -9,6 +9,7 @@
         "react-router": "~0.13",
         "superagent": "^0.21.0",
         "keymirror": "~0.1.0",
+        "babelify": "^6.1.0",
         "grunt": ">= 0.4",
         "grunt-cli": ">= 0.1.6",
         "grunt-contrib-watch": "~0.3.1",

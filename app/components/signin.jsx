@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 var React = require('react');
 var actions = require('../actions/actions');
 var SessionStore = require('../stores/session');

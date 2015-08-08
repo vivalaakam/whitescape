@@ -34,7 +34,7 @@ module.exports = function(grunt) {
         },
         browserify: {
             options: {
-                transform: [require('grunt-react').browserify]
+                transform: ["babelify"]
             },
             client: {
                 src: ['./app/app.jsx'],
@@ -65,7 +65,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-webfont');
-    grunt.loadNpmTasks('grunt-jest');
 
 
     grunt.registerTask('default', ['browserify', 'less:development', 'connect', 'watch']);

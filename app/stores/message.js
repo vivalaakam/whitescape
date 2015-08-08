@@ -4,8 +4,8 @@ var ActionTypes = require('../constants/constants').ActionTypes;
 var AppDispatcher = require('../dispatcher/dispatcher');
 var CHANGE_EVENT = 'change';
 var messages = [],
-    message_ids = [];
-next = null;
+    message_ids = [],
+    next = null;
 
 function _next(url) {
     if (url) {
