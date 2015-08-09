@@ -46,4 +46,4 @@ superagent.mockResponse = new Response();
 superagent.mockError = null;
 superagent.mockDelay = false;
 
-module.exports = superagent;
+export default superagent;

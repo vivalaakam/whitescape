@@ -1,5 +1,5 @@
-var keyMirror = require('keymirror');
-module.exports = {
+import keyMirror from 'keymirror';
+export default {
     ActionTypes: keyMirror({
         SIGNUP: null,
         LOGIN: null,

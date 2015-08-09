@@ -1,15 +1,17 @@
-/** @jsx React.DOM */
 jest.dontMock('../signin.jsx');
 jest.dontMock('object-assign');
 jest.dontMock('../../../spec/support/stubRouterContext.js');
+
+
+    import React from 'react/addons';
+    import Signin from '../signin.jsx';
+    import ReactRouterContext from '../../../spec/support/stubRouterContext.js';
+    import Actions from "../../actions/actions";
+    import ErrorStore from '../../stores/errors';
+
 describe('Signin', function() {
-    var React = require('react/addons');
     var TestUtils = React.addons.TestUtils;
-    var Signin = require('../signin.jsx');
-    var ReactRouterContext = require('../../../spec/support/stubRouterContext.js');
-    var Actions = require("../../actions/actions");
-    var ErrorStore = require('../../stores/errors');
-    Signin = ReactRouterContext(Signin , {ref: "child"});
+    var SigninR = ReactRouterContext(Signin , {ref: "child"});
 
     var user = {
       email : "test@test",
@@ -17,12 +19,12 @@ describe('Signin', function() {
     };
 
     it('should exists', function() {
-        var signin = TestUtils.renderIntoDocument( <Signin /> );
+        var signin = TestUtils.renderIntoDocument( <SigninR /> );
         expect(TestUtils.isCompositeComponent(signin)).toBeDefined();
     });
 
     it('submit form' , function () {
-        var signin = TestUtils.renderIntoDocument( <Signin /> );
+        var signin = TestUtils.renderIntoDocument( <SigninR /> );
         var emailInput = signin.refs.child.refs.email;
       	var passInput = signin.refs.child.refs.password;
         emailInput.getDOMNode().value = user.email;
@@ -34,7 +36,7 @@ describe('Signin', function() {
     });
 
     it('show error' , function () {
-        var signin = TestUtils.renderIntoDocument( <Signin /> );
+        var signin = TestUtils.renderIntoDocument( <SigninR /> );
         var err = { name : 'err' , value: 'show error' };
 
         expect(ErrorStore.addChangeListener.mock.calls.length).toBeGreaterThan(0);

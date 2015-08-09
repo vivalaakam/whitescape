@@ -1,13 +1,12 @@
-var React = require('react');
-var RouteHandler = require('react-router').RouteHandler;
+import React from 'react';
+import {RouteHandler} from 'react-router';
 
-var Template = React.createClass({
-    render: function () {
-        return (
-            <div className="content">
-                <RouteHandler />
-            </div>
-        );
-    }
-});
-module.exports = Template;
+export default class Template extends React.Component {
+  render() {
+      return (
+          <div className="content">
+              <RouteHandler/>
+          </div>
+      );
+  }
+}

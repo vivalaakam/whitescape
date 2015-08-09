@@ -1,24 +1,31 @@
-var React = require('react');
-var actions = require('../actions/actions');
-var Link = require('react-router').Link;
-var SessionStore = require('../stores/session');
-var Router = require('react-router');
+import React from 'react';
+import actions from '../actions/actions';
+import SessionStore from '../stores/session';
+import router from '../router';
 
-var Signout = React.createClass({
-    mixins: [Router.Navigation],
-    componentDidMount: function () {
+
+export default class Signout extends React.Component {
+
+    constructor(props) {
+      super(props);
+      this._onSubmit = this._onSubmit.bind(this);
+    }
+
+    componentDidMount () {
         SessionStore.addChangeListener(this._onSubmit);
         actions.logout();
-    },
-    _onSubmit: function () {
+    }
+
+    _onSubmit  () {
         if (!SessionStore.isLoggedIn()) {
-            this.transitionTo('main');
+            router.transitionTo('main');
         }
-    },
-    render: function () {
+    }
+
+    render () {
         return (
             <div>Signout</div>
         );
     }
-});
-module.exports = Signout;
+    
+}

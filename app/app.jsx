@@ -1,7 +1,7 @@
-var React = require('react');
-var Router = require('react-router');
-var Routes = require('./routes.jsx');
+import React from 'react';
+import Router from 'react-router';
+import router from './router';
 
-Router.run(Routes, Router.HistoryLocation, function (Handler, state) {
-	  	React.render(<Handler />, document.getElementById('main'));
-	});
+router.run(function (Handler) {
+  React.render(<Handler />, document.getElementById('main'));
+});

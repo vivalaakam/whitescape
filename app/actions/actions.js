@@ -1,8 +1,8 @@
-var AppDispatcher = require('../dispatcher/dispatcher');
-var ActionTypes = require('../constants/constants').ActionTypes;
-var ApiUtils = require('../utils/apiutils');
+import AppDispatcher from '../dispatcher/dispatcher';
+import { ActionTypes } from '../constants/constants';
+import ApiUtils from '../utils/apiutils';
 
-module.exports = {
+export default {
     signup: function(email, password, lastName, firstName) {
         ApiUtils.signup({
                 email: email,

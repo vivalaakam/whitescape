@@ -1,8 +1,9 @@
-var actions = require('../actions/actions');
-var request = require('superagent');
-var Promise = require('promise/lib/es6-extensions');
-var SessionStore = require('../stores/session');
-module.exports = {
+import actions from '../actions/actions';
+import request from 'superagent';
+import Promise from 'promise/lib/es6-extensions';
+import SessionStore from '../stores/session';
+
+export default {
     signup: function(data) {
         return new Promise(function(resolve, reject) {
             request

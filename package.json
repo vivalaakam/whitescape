@@ -24,10 +24,14 @@
         "react-tools": "^0.13.3",
         "jest-cli": "~0.4.13"
     },
+    "devDependencies": {
+        "babel-jest": "*"
+    },
     "jest": {
-        "scriptPreprocessor": "<rootDir>/preprocessor.js",
+        "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
         "unmockedModulePathPatterns": [
-            "node_modules/react"
+            "<rootDir>/node_modules/react",
+            "<rootDir>/node_modules/react-tools"
         ]
     },
     "scripts": {

@@ -1,23 +1,27 @@
-var React = require('react');
-var actions = require('../actions/actions');
-var Message = React.createClass({
-    _onDelete: function (e) {
-        e.preventDefault();
-        actions.removeMessage(this.props.message);
-    },
-    render: function () {
-        return (
-            <div className="message">
-                <div className="message__time">
-                    <span className="icon-time"></span>
-                    <span>{this.props.message.created}</span></div>
-                <div className="message__body">{this.props.message.text}</div>
-                <button className="message__delete-button" onClick={this._onDelete}>
-                    <span className="icon-delete"></span>
-                </button>
-            </div>
-        );
-    }
-});
+import React from 'react';
+import actions from '../actions/actions';
 
-module.exports = Message;
+export default class Message extends React.Component {
+  constructor(props) {
+    super(props);
+    this._onDelete = this._onDelete.bind(this);
+  }
+  _onDelete (e) {
+      e.preventDefault();
+      actions.removeMessage(this.props.message);
+  }
+
+  render () {
+      return (
+          <div className="message">
+              <div className="message__time">
+                  <span className="icon-time"></span>
+                  <span>{this.props.message.created}</span></div>
+              <div className="message__body">{this.props.message.text}</div>
+              <button className="message__delete-button" onClick={this._onDelete}>
+                  <span className="icon-delete"></span>
+              </button>
+          </div>
+      );
+  }
+}

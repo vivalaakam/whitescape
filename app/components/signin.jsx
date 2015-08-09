@@ -1,53 +1,64 @@
-var React = require('react');
-var actions = require('../actions/actions');
-var SessionStore = require('../stores/session');
-var ErrorStore = require('../stores/errors');
-var Router = require('react-router');
-var Link = Router.Link;
+import React from 'react';
+import actions from '../actions/actions';
+import SessionStore from '../stores/session';
+import ErrorStore from '../stores/errors';
+import {Link} from  'react-router';
+import router from '../router';
 
-var Signin = React.createClass({
-    mixins: [Router.Navigation],
-    statics: {
-        willTransitionTo: function(transition) {
-            if (SessionStore.isLoggedIn()) {
-                transition.redirect("/messages");
-            }
-        }
-    },
-    getInitialState: function() {
-        return {
-            errors: []
-        };
-    },
-    componentDidMount: function() {
+export default class Signin extends React.Component {
+
+    static willTransitionTo(transition) {
+      if (SessionStore.isLoggedIn()) {
+          transition.redirect("/messages");
+      }
+    }
+
+    constructor(props) {
+      super(props);
+      this._onSubmit = this._onSubmit.bind(this);
+      this._onError = this._onError.bind(this);
+      this._onChange = this._onChange.bind(this);
+      this._submit = this._submit.bind(this);
+      this.state = {
+        errors: []
+      };
+    }
+
+    componentDidMount() {
         SessionStore.addChangeListener(this._onSubmit);
         ErrorStore.addChangeListener(this._onError);
-    },
-    componentWillUnmount: function() {
+    }
+
+    componentWillUnmount() {
         SessionStore.removeChangeListener(this._onSubmit);
         ErrorStore.removeChangeListener(this._onError);
-    },
-    _onSubmit: function() {
-        this.transitionTo('messages');
-    },
-    _onError: function(data) {
+    }
+
+    _onSubmit() {
+        router.transitionTo('messages');
+    }
+
+    _onError(data) {
         this.setState({
             errors: ErrorStore.getErrors()
         });
-    },
-    _submit: function(e) {
+    }
+
+    _submit(e) {
         e.preventDefault();
         var email = this.refs.email.getDOMNode().value;
         var password = this.refs.password.getDOMNode().value;
         var self = this;
         actions.login(email, password);
-    },
-    _reset: function() {
+    }
+
+    _onChange() {
         this.setState({
             errors: []
         });
-    },
-    renderError: function() {
+    }
+
+    renderError() {
         return this.state.errors.map(function(error) {
             return (
                 <li>
@@ -55,8 +66,9 @@ var Signin = React.createClass({
                 </li>
             );
         });
-    },
-    render: function() {
+    }
+    
+    render() {
         var nav = this.state.errors.length ? (
             <div className="login__errors">
                 <ul>{this.renderError()}</ul>
@@ -74,10 +86,10 @@ var Signin = React.createClass({
                 </div>
                 <form className="login__form" onSubmit={this._submit}>
                     <div className="input icon-email">
-                        <input className="inp login__form-email" onChange={this._reset} placeholder="Email" ref="email" type="text"/>
+                        <input className="inp login__form-email" onChange={this._onChange} placeholder="Email" ref="email" type="text"/>
                     </div>
                     <div className="input icon-password">
-                        <input className="inp login__form-password" onChange={this._reset} placeholder="Password" ref="password" type="password"/>
+                        <input className="inp login__form-password" onChange={this._onChange} placeholder="Password" ref="password" type="password"/>
                     </div>
                     {nav}
                 </form>
@@ -87,5 +99,5 @@ var Signin = React.createClass({
             </div>
         );
     }
-});
-module.exports = Signin;
+
+}

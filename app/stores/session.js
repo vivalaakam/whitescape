@@ -1,83 +1,91 @@
-var EventEmitter = require('events').EventEmitter;
-var assign = require('object-assign');
-var ActionTypes = require('../constants/constants').ActionTypes;
-var AppDispatcher = require('../dispatcher/dispatcher');
+import { EventEmitter } from 'events';
+import { ActionTypes } from '../constants/constants';
+import AppDispatcher from '../dispatcher/dispatcher';
 var CHANGE_EVENT = 'change';
-var session = {};
 
-function _setSession(data) {
-    session = data;
-    try {
-        localStorage.setItem('session', JSON.stringify(session));
-    } catch (exception) {}
-}
+class SessionStore extends EventEmitter {
 
-function _updateSession(data) {
-    session.profile = data;
-    try {
-        localStorage.setItem('session', JSON.stringify(session));
-    } catch (exception) {}
-}
-
-function _restoreSession() {
-    try {
-        session = JSON.parse(localStorage.getItem('session'));
-    } catch (exception) {
-        session = {};
+    constructor() {
+        super();
+        this._session = {};
+        this._dispatchToken = AppDispatcher.register(this.subscribe.bind(this));
+        this._restoreSession();
     }
-}
 
-function _clearSession() {
-    session = {};
-    try {
-        localStorage.setItem('session', JSON.stringify({}));
-    } catch (exception) {}
-}
+    subscribe(action) {
+        switch (action.type) {
+            case ActionTypes.SIGNUP:
+            case ActionTypes.LOGIN:
+                this._setSession(action.data);
+                this.emitChange();
+                break;
+            case ActionTypes.LOGOUT:
+                this._clearSession();
+                this.emitChange();
+                break;
+            case ActionTypes.UPDATE_PROFILE:
+                this._updateSession(action.data);
+                this.emitChange();
+                break;
+            default:
+        }
+    }
 
-_restoreSession();
+    get dispatchToken() {
+        return this._dispatchToken;
+    }
 
-var SessionStore = assign({}, EventEmitter.prototype, {
-
-    emitChange: function() {
+    emitChange() {
         this.emit(CHANGE_EVENT);
-    },
-    addChangeListener: function(callback) {
+    }
+    addChangeListener(callback) {
         this.on(CHANGE_EVENT, callback);
-    },
-    removeChangeListener: function(callback) {
+    }
+    removeChangeListener(callback) {
         this.removeListener(CHANGE_EVENT, callback);
-    },
-    getData: function() {
-        return session.profile;
-    },
-    getToken: function() {
-        return session.token;
-    },
-    isLoggedIn: function() {
-        return session && session.token;
-    }
-});
-
-SessionStore.dispatchToken = AppDispatcher.register(function(action) {
-
-    switch (action.type) {
-        case ActionTypes.SIGNUP:
-        case ActionTypes.LOGIN:
-            _setSession(action.data);
-            SessionStore.emitChange();
-            break;
-        case ActionTypes.LOGOUT:
-            _clearSession();
-            SessionStore.emitChange();
-            break;
-        case ActionTypes.UPDATE_PROFILE:
-            _updateSession(action.data);
-            SessionStore.emitChange();
-            break;
-        default:
-            // do nothing
     }
 
-});
+    getData() {
+        return this._session.profile;
+    }
+    getToken() {
+        return this._session.token;
+    }
 
-module.exports = SessionStore;
+    isLoggedIn() {
+        return this._session && this._session.token;
+    }
+
+
+    _setSession(data) {
+        this._session = data;
+        try {
+            localStorage.setItem('session', JSON.stringify(this._session));
+        } catch (exception) {}
+    }
+
+    _updateSession(data) {
+        this._session.profile = data;
+        try {
+            localStorage.setItem('session', JSON.stringify(this._session));
+        } catch (exception) {}
+    }
+
+    _restoreSession() {
+        try {
+            this._session = JSON.parse(localStorage.getItem('session'));
+        } catch (exception) {
+            this._session = {};
+        }
+    }
+
+    _clearSession() {
+        this._session = {};
+        try {
+            localStorage.setItem('session', JSON.stringify({}));
+        } catch (exception) {}
+    }
+
+}
+
+export default new SessionStore();
