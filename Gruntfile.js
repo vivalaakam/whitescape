@@ -1,16 +1,6 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        watch: {
-            browserify: {
-                files: ['./app/**/*.js', './app/**/*.jsx'],
-                tasks: ['browserify'],
-            },
-            less: {
-                files: './less/*.less',
-                tasks: ['less:development']
-            }
-        },
         connect: {
             server: {
                 options: {
@@ -20,27 +10,7 @@ module.exports = function(grunt) {
                 }
             }
         },
-        less: {
-            development: {
-                options: {
-                    compress: false,
-                    yuicompress: false,
-                    optimization: 2
-                },
-                files: {
-                    './public/stylesheets/style.css': './less/app.less'
-                }
-            }
-        },
-        browserify: {
-            options: {
-                transform: ["babelify"]
-            },
-            client: {
-                src: ['./app/app.jsx'],
-                dest: './public/javascripts/app.js'
-            }
-        },
+        watch: {},
         webfont: {
             icons: {
                 src: 'icons/*.svg',
@@ -61,12 +31,10 @@ module.exports = function(grunt) {
     });
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-webfont');
 
 
-    grunt.registerTask('default', ['browserify', 'less:development', 'connect', 'watch']);
+    grunt.registerTask('default', ['connect', 'watch']);
 
 };

@@ -9,20 +9,25 @@
         "react-router": "~0.13",
         "superagent": "^0.21.0",
         "keymirror": "~0.1.0",
-        "babelify": "^6.1.0",
         "grunt": ">= 0.4",
         "grunt-cli": ">= 0.1.6",
+        "less-loader": "~2.2",
+        "style-loader": "~0.12",
+        "css-loader": "~0.15",
         "grunt-contrib-watch": "~0.3.1",
         "grunt-contrib-less": ">=1.0.0",
         "grunt-contrib-connect": "latest",
         "grunt-webpack": "~1.0",
-        "grunt-browserify": "2.1.4",
         "grunt-contrib-copy": "~0.8",
         "grunt-webfont": "~0.4.8",
         "grunt-react": "~0.12",
         "promise": "~7.0",
         "react-tools": "^0.13.3",
-        "jest-cli": "~0.4.13"
+        "react-hot-loader": "*",
+        "jest-cli": "~0.4.13",
+        "babel-core": "^5.3.3",
+        "babel-loader": "^5.0.0",
+        "webpack": "^1.9.5"
     },
     "devDependencies": {
         "babel-jest": "*"
@@ -35,6 +40,9 @@
         ]
     },
     "scripts": {
-        "test": "node node_modules/jest-cli/bin/jest.js"
+        "test": "node node_modules/jest-cli/bin/jest.js",
+        "start": "npm run build && grunt",
+        "build": "webpack --progress --colors"
+
     }
 }
