@@ -6,7 +6,6 @@
 @import "message";
 @import "messages";
 @import "newmessage";
-
 @font-face {
     font-family: "avenir-light";
     src: url("/fonts/avenir.eot");
@@ -29,9 +28,11 @@ body {
 #main {
     height: 100%;
 }
+body {
+    background: url("/images/bg_desktop.png") top right no-repeat fixed;
+}
 .content {
     height: 100%;
-    background: url('/images/bg_desktop.png') no-repeat 100% 0;
     position: relative;
 }
 .update {
@@ -108,8 +109,6 @@ body {
         }
     }
 }
-
-
 .leftmenu {
     .leftmenu-nav {
         position: fixed;
@@ -154,7 +153,6 @@ body {
         }
     }
 }
-
 .input {
     background-color: #fff;
     color: rgba(29, 29, 38, 0.5);
@@ -189,9 +187,8 @@ body {
         padding: 5px;
     }
     .update {
-      top: 45px;
+        top: 45px;
     }
-
     .signup,
     .login,
     .update {
