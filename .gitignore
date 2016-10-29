@@ -3,3 +3,4 @@ public/javascripts
 public/stylesheets
 .DS_Store
 npm-debug.log
+.idea
