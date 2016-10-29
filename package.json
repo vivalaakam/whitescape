@@ -1,8 +1,9 @@
 {
-  "name": "test",
-  "version": "1.0.0",
+  "name": "whitescape",
+  "version": "2.0.0",
+  "author": "",
   "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js --harmony-generators ",
     "migrate": "node_modules/sequelize-cli/bin/sequelize db:migrate --models-path 'server/models'",
@@ -14,7 +15,6 @@
     "dev-server": "webpack-dev-server --config config/webpack.hot.js",
     "dev": "concurrently --kill-others \"npm run watch\" \"npm run dev-server\" \"npm run start\""
   },
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.11.4",
@@ -39,6 +39,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "history": "^2.1.2",
     "imports-loader": "^0.6.5",
+    "jsonwebtoken": "^7.1.9",
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.1.0",
     "koa-convert": "^1.2.0",
