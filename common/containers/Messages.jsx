@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import MessagesWidget from '../components/Messages/Messages';
+import { showModal } from '../reducers/modal';
 import {
   fetchMessages,
   updateMessage,
@@ -18,7 +19,8 @@ const actionsDispatch = dispatch => ({
     updateMessage,
     deleteMessage,
     fetchMessages,
-    setMessage
+    setMessage,
+    showModal
   }, dispatch),
   dispatch
 });

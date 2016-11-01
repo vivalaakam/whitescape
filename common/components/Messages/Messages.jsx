@@ -28,7 +28,14 @@ export default class Messages extends Component {
   }
 
   renderList() {
-    return this.props.list.map((message, i) => (<Message message={message} key={i} />));
+    return this.props.list.map((message, i) => (
+      <Message
+        message={message}
+        key={i}
+        showModal={this.props.actions.showModal}
+        deleteMessage={this.props.actions.deleteMessage}
+      />
+    ));
   }
 
   renderLoadMore() {
