@@ -4,7 +4,14 @@ import { bindActionCreators } from 'redux';
 import TodosWidget from '../components/Todos/Todos';
 import { setFilter } from '../reducers/todos/filter';
 import { showModal } from '../reducers/modal';
-import { fetchTodos, updateTodo, deleteTodo, toggleTodo, clearCompletedTodos } from '../reducers/todos/list';
+import {
+  fetchTodos,
+  createTodo,
+  updateTodo,
+  deleteTodo,
+  toggleTodo,
+  clearCompletedTodos
+} from '../reducers/todos/list';
 
 const state = ({ todos }) => ({ todos });
 
@@ -12,6 +19,7 @@ const actionsDispatch = dispatch => ({
   actions: bindActionCreators({
     updateTodo,
     deleteTodo,
+    createTodo,
     clearCompletedTodos,
     toggleTodo,
     setFilter,
