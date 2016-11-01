@@ -46,7 +46,7 @@ export default {
       const current = ctx.state.user;
       if (!ctx.isAuthenticated() || decoded.user_id !== current.id) {
         const user = await authModel.getId(decoded.id);
-         ctx.login(user);
+        ctx.login(user);
       }
       return next();
     } catch (err) {

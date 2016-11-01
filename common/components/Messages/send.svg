@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="51px" height="51px" viewBox="0 0 51 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_confirm_desktop</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="_Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="My-Messages-(desktop)" transform="translate(-1589.000000, -224.000000)">
+            <g id="New-Message" transform="translate(870.000000, 120.000000)">
+                <g id="ico_confirm_desktop" transform="translate(720.000000, 105.000000)">
+                    <rect id="bounds" x="0" y="0" width="50" height="50"></rect>
+                    <circle id="bg" stroke="#BA77FF" stroke-width="2" cx="24.5" cy="24.5" r="24.5"></circle>
+                    <polyline id="shape-copy" stroke="#BA77FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(29.904830, 24.743426) scale(-1, 1) translate(-29.904830, -24.743426) " points="34.8096601 33.4868527 25 24.7434263 34.8096601 16"></polyline>
+                    <path d="M15,24.4469633 L33.6882885,24.4469633" id="line-copy" stroke="#BA77FF" stroke-width="2" stroke-linecap="round" transform="translate(24.344144, 24.446963) scale(-1, 1) translate(-24.344144, -24.446963) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

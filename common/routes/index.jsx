@@ -4,6 +4,7 @@ import App from '../containers/App';
 import Main from '../containers/Main';
 import Auth from '../containers/Auth';
 import Todos from '../containers/Todos';
+import Messages from '../containers/Messages';
 import Restricted from '../containers/Restricted';
 
 export default function Routes({ store, first }) {
@@ -28,6 +29,7 @@ export default function Routes({ store, first }) {
       <Route path="/auth" component={Auth} />
       <Route path="/" component={Restricted}>
         <Route path="/todos" component={Todos} onEnter={w(Todos.onEnter)} />
+        <Route path="/messages" component={Messages} onEnter={w(Messages.onEnter)} />
       </Route>
     </Route>
   );

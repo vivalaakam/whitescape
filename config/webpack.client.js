@@ -33,6 +33,10 @@ const config = {
         query: {
           presets: ['react', 'es2015-node5', 'es2016-node5']
         }
+      },
+      {
+        test: /\.(png|svg)(\?.*$|$)/,
+        loader: 'url-loader'
       }
     ]
   },

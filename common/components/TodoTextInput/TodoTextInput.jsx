@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import classnames from 'classnames';
 import Inp from '../UI/Inp/Inp';
 import style from './TodoTextInput.scss';
 
@@ -42,6 +41,7 @@ export default class TodoTextInput extends Component {
   render() {
     return (
       <Inp
+        className={style.TodoTextInput}
         placeholder={this.props.placeholder}
         value={this.state.text}
         onBlur={::this.handleBlur}

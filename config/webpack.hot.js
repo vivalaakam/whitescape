@@ -12,13 +12,13 @@ config.devtool = 'cheap-module-eval-source-map';
 
 config.entry.client.unshift(
   'eventsource-polyfill',
-  'webpack-dev-server/client?http://' + wds.hostname + ':' + wds.port,
+  `webpack-dev-server/client?http://${wds.hostname}:${wds.port}`,
   'webpack/hot/only-dev-server'
 );
 
 
 config.devServer = {
-  publicPath: 'http://' + wds.hostname + ':' + wds.port + '/',
+  publicPath: `http://${wds.hostname}:${wds.port}/`,
   hot: true,
   inline: false,
   lazy: false,

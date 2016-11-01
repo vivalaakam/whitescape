@@ -13,8 +13,23 @@ export default class Postgres {
     this.collection = collection;
   }
 
-  async list(filter = {}) {
-    const result = await this.collection.findAll({ where: filter });
+  async list(where = {}, order = [], limit = false, offset = false) {
+    const query = {
+      where, order
+    };
+
+    if (limit !== false) {
+      query.limit = limit;
+    }
+    if (offset !== false) {
+      query.offset = offset;
+    }
+    const result = await this.collection.findAll(query);
+    return result;
+  }
+
+  async count(where) {
+    const result = await this.collection.count({ where });
     return result;
   }
 
