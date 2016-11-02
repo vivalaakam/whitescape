@@ -10,9 +10,9 @@ const actionsDispatch = dispatch => ({
   dispatch
 });
 
-const Topbar = ({ actions, auth, title }) => (
-  <TopbarWidget {...{ actions, auth, title }} />
-);
+function Topbar({ actions, auth, title }) {
+  return <TopbarWidget {...{ actions, auth, title }} />;
+}
 
 Topbar.propTypes = {
   actions: PropTypes.object.isRequired,

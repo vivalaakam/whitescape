@@ -3,14 +3,16 @@ import { connect } from 'react-redux';
 import Modal from './Modal';
 import AppWidget from '../components/App';
 
-const App = ({ children }) => (
-  <div className="todoapp">
-    <AppWidget>
-      {children}
-    </AppWidget>
-    <Modal />
-  </div>
-);
+function App({ children }) {
+  return (
+    <div className="todoapp">
+      <AppWidget>
+        {children}
+      </AppWidget>
+      <Modal />
+    </div>
+  );
+}
 
 App.propTypes = {
   children: PropTypes.element.isRequired
