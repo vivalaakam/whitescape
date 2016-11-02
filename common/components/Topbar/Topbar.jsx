@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classnames from 'classnames';
 import { Link } from 'react-router';
 
 const style = require('./Topbar.scss');
@@ -15,8 +16,8 @@ export default class Topbar extends Component {
     if (auth && auth.id) {
       return (
         <div className={style.auth}>
-          <Link className={style.link} to="/">Messages</Link>
-          <a className={style.link} href="/api/auth/logout">Logout</a>
+          <span className={style.name}>{auth.firstName} {auth.lastName}</span>
+          <a className={classnames(style.link, style.logout)} href="/api/auth/logout">&nbsp;</a>
         </div>
       );
     }

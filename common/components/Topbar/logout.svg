@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="39px" viewBox="0 0 38 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>logout ico</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Header" transform="translate(-1826.000000, -26.000000)">
+            <g id="logout-ico" transform="translate(1820.000000, 20.000000)">
+                <polyline id="shape-copy" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" points="32.1267196 16.4640569 42.1 25.7070285 32.1267196 34.95"></polyline>
+                <path d="M42.1,25.77 L20.25,25.77" id="shape-copy-2" stroke="#FFFFFF" stroke-width="2"></path>
+                <polyline id="shape-copy-3" stroke="#FFFFFF" stroke-width="2" points="30.7 43.5 7.9 43.5 7.9 7.5 30.7 7.5"></polyline>
+                <rect id="bounds-copy" x="0" y="0" width="50" height="50"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

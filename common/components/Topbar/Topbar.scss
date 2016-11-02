@@ -4,10 +4,10 @@
   position: fixed;
   top: 0px;
   left: 0px;
-  background-color: #3c4350;
-  font-size: 25px;
-  font-weight: 300;
-  text-transform: uppercase;
+  background-color: #BA77FF;
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: 200;
   color: #e4e4e4;
   z-index: 100;
 
@@ -39,5 +39,18 @@
     top: 50%;
     transform: translateY(-50%);
 
+  }
+
+  .logout {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url(./logout.svg);
+    background-size: cover;
+  }
+
+  .name {
+    vertical-align: top;
+    margin-right: 10px;
   }
 }
