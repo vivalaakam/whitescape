@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>ico_scroll</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="_Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="My-Messages-(desktop)" transform="translate(-1249.000000, -1594.000000)">
+            <g id="ico_scroll" transform="translate(1245.000000, 1590.000000)">
+                <g id="group" transform="translate(25.000000, 25.000000) rotate(-90.000000) translate(-25.000000, -25.000000) translate(5.000000, 5.000000)" stroke="#BA77FF" stroke-width="2" stroke-linecap="round">
+                    <polyline id="shape" stroke-linejoin="round" points="20.9963798 39.1236891 0 19.5618445 20.9963798 -3.98411463e-13"></polyline>
+                    <path d="M-2.2759572e-15,19.4285714 L40,19.4285714" id="line"></path>
+                </g>
+                <rect id="bounds" x="0" y="0" width="50" height="50"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

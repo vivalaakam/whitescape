@@ -15,7 +15,7 @@ router
   .use('/api', api.routes(), api.allowedMethods());
 
 router
-  .get('/messages', prefetch.messages, render)
+  .get('/', prefetch.messages, render)
   .get('/*', render);
 
 

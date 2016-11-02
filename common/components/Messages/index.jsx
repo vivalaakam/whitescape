@@ -40,7 +40,11 @@ export default class Messages extends Component {
 
   renderLoadMore() {
     if (this.props.params.loadMore) {
-      return (<button onClick={::this.loadMore}>Load more</button>);
+      return (
+        <button className={style.load} onClick={::this.loadMore}>
+          <span />
+        </button>
+      );
     }
     return null;
   }
