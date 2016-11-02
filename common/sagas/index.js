@@ -1,13 +1,4 @@
 import {
-  watchCreateTodo,
-  watchFetchTodos,
-  watchUpdateTodo,
-  watchDeleteTodo,
-  watchToggleTodo,
-  watchCompleteAllTodos,
-  watchClearCompletedTodos
-} from '../reducers/todos/list';
-import {
   watchCreateMessage,
   watchFetchMessages,
   watchUpdateMessage,
@@ -19,13 +10,6 @@ import { watchResolveActionModal, watchRejectActionModal } from '../reducers/mod
 
 export default function* rootSaga() {
   yield [
-    watchCreateTodo(),
-    watchFetchTodos(),
-    watchUpdateTodo(),
-    watchDeleteTodo(),
-    watchToggleTodo(),
-    watchCompleteAllTodos(),
-    watchClearCompletedTodos(),
     watchFetchAuth(),
     watchAuthentificate(),
     watchSignup(),
