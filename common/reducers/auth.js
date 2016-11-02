@@ -1,4 +1,4 @@
-import { put } from 'redux-saga/effects';
+import { put, select } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
 import { takeEvery } from 'redux-saga';
 import { createAction } from 'redux-actions';
@@ -8,6 +8,8 @@ import Auth from '../api/auth';
 const apiAuth = new Auth();
 
 const AUTH_CURRENT = Symbol('AUTH_CURRENT');
+const AUTH_UPDATE = Symbol('AUTH_UPDATE');
+const AUTH_SAVE = Symbol('AUTH_SAVE');
 const AUTH_ERROR = Symbol('AUTH_ERROR');
 const AUTH_FETCH = Symbol('AUTH_FETCH');
 const AUTH_AUTHENTIFICATE = Symbol('AUTH_AUTHENTIFICATE');
@@ -21,6 +23,8 @@ export default function auth($$state = $$initialState, { type, payload }) {
       return payload;
     case AUTH_ERROR:
       return merge($$state, { error: payload });
+    case AUTH_UPDATE:
+      return merge($$state, payload);
     default:
       return $$state;
   }
@@ -32,9 +36,17 @@ const currentAuth = createAction(AUTH_CURRENT);
 
 const errorAuth = createAction(AUTH_ERROR);
 
+const updateAuth = createAction(AUTH_UPDATE);
+
+const saveAuth = createAction(AUTH_SAVE);
+
 const authentificate = createAction(AUTH_AUTHENTIFICATE);
 
 const signup = createAction(AUTH_SIGNUP);
+
+function getUser(state) {
+  return state.auth;
+}
 
 function* fetchAuthAction() {
   const authData = yield apiAuth.current();
@@ -61,6 +73,17 @@ function* signupAction({ payload }) {
   }
 }
 
+function* saveAuthAction() {
+  try {
+    const { firstName, lastName } = yield select(getUser);
+    const user = yield apiAuth.updateCurrent({ firstName, lastName });
+    yield put(currentAuth(user));
+    yield put(push('/'));
+  } catch (e) {
+    yield put(errorAuth(e.message));
+  }
+}
+
 export function* watchFetchAuth() {
   yield* takeEvery(AUTH_FETCH, fetchAuthAction);
 }
@@ -73,6 +96,10 @@ export function* watchSignup() {
   yield takeEvery(AUTH_SIGNUP, signupAction);
 }
 
+export function* watchSaveAuth() {
+  yield takeEvery(AUTH_SAVE, saveAuthAction);
+}
+
 export {
-  fetchAuth, signup, authentificate, errorAuth
+  fetchAuth, saveAuth, updateAuth, signup, authentificate, errorAuth
 };

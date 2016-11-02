@@ -1,0 +1,77 @@
+.Settings {
+  position: absolute;
+  width: 450px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  .row {
+    position: relative;
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 30px;
+    font-weight: 200;
+    border-radius: 0px;
+    border: none;
+  }
+
+  .inp {
+    padding: 30px;
+    padding-left: 75px;
+    height: 80px;
+    border: none;
+    font-size: 28px;
+    font-weight: 200;
+    border-radius: 0px;
+    display: block;
+    border-bottom: 1px solid #F3F3F4;
+  }
+
+  .person {
+    &:before {
+      width: 40px;
+      height: 37px;
+      background-image: url(./person.svg);
+      background-size: cover;
+    }
+  }
+
+  .submit {
+    height: 80px;
+    background-color: #BA77FF;
+    &:hover {
+      background-color: scale-color(#BA77FF, $lightness: 25%);
+      color: #fff;
+    }
+  }
+
+  .haveAccount {
+    color: rgba(255, 255, 255, .5);
+    margin-bottom: 60px;
+    font-size: 26px;
+    font-weight: 200;
+    text-align: center;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .error {
+    color: #FF7070;
+    &.submit {
+      background-color: #FF7070;
+      color: #fff;
+    }
+  }
+}

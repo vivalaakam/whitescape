@@ -50,6 +50,16 @@
     text-decoration: none;
   }
 
+  .settings {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url(./settings.svg);
+    background-size: cover;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+
   .name {
     vertical-align: top;
     margin-right: 10px;

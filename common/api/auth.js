@@ -16,4 +16,8 @@ export default class Auth extends Rest {
   signup({ username, password, firstName, lastName }) {
     return this.postQuery(`${this.base_url}/signup`, { username, password, firstName, lastName });
   }
+
+  updateCurrent(data) {
+    return this.putQuery(`${this.base_url}`, data);
+  }
 }

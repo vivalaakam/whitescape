@@ -75,5 +75,14 @@ export default {
       ctx.status = 401;
       return ctx;
     }
+  },
+  update: async function updateCurrent(ctx) {
+    const current = ctx.state.user;
+    const { firstName, lastName } = ctx.request.body;
+    const user = await authModel.update(current.id, {
+      firstName, lastName
+    });
+    delete user.password;
+    ctx.body = user;
   }
 };

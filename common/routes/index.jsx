@@ -4,6 +4,7 @@ import App from '../containers/App';
 import Auth from '../containers/Auth';
 import Signup from '../containers/Signup';
 import Messages from '../containers/Messages';
+import Settings from '../containers/Settings';
 import Restricted from '../containers/Restricted';
 
 export default function Routes({ store, first }) {
@@ -28,6 +29,7 @@ export default function Routes({ store, first }) {
       <Route path="/signup" component={Signup} />
       <Route component={Restricted}>
         <IndexRoute component={Messages} onEnter={w(Messages.onEnter)} />
+        <Route path="/settings" component={Settings} />
       </Route>
     </Route>
   );
