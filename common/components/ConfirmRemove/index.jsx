@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Modal from '../Modal/Modal';
+import Modal from '../Modal';
 
 export default class Confirm extends Component {
 

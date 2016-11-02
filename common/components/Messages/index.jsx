@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
-import Message from '../Message/Message';
+import Message from '../Message';
 import style from './Messages.scss';
 
 export default class Messages extends Component {

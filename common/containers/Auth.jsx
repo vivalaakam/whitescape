@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { authentificate, errorAuth } from '../reducers/auth';
-import AuthWidget from '../components/Auth/Auth';
+import AuthWidget from '../components/Auth';
 
 const state = ({ auth }) => ({ auth });
 

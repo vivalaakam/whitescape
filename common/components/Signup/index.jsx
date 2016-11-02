@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import { Link } from 'react-router';
-import Back from '../Back/Back';
-import Inp from '../UI/Inp/Inp';
-import Btn from '../UI/Btn/Btn';
+import Back from '../Back/index';
+import { Inp, Btn } from '../UI';
 import style from './Signup.scss';
 
 export default class Signup extends Component {

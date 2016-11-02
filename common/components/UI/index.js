@@ -1,7 +1,7 @@
-import Btn from './Btn/Btn';
-import Checkbox from './Checkbox/Checkbox';
-import Inp from './Inp/Inp';
-import InfiniteProgress from './InfiniteProgress/InfiniteProgress';
+import Btn from './Btn';
+import Checkbox from './Checkbox';
+import Inp from './Inp';
+import InfiniteProgress from './InfiniteProgress';
 
 export {
   Btn, Checkbox, Inp, InfiniteProgress

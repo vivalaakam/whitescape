@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { push } from 'react-router-redux';
 
-
 const state = ({ auth }) => ({ auth });
 
 const actionsDispatch = dispatch => ({

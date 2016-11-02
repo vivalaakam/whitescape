@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import MessagesWidget from '../components/Messages/Messages';
+import MessagesWidget from '../components/Messages';
 import { showModal } from '../reducers/modal';
 import {
   fetchMessages,
