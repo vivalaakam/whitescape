@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Topbar from './Topbar';
 import MessagesWidget from '../components/Messages';
 import { showModal } from '../reducers/modal';
 import {
@@ -25,10 +26,14 @@ const actionsDispatch = dispatch => ({
   dispatch
 });
 
-const Messages = ({ messages: { list, form, params }, actions }) => (
-  <MessagesWidget {...{ list, form, params, actions }} />
-);
-
+function Messages({ messages: { list, form, params }, actions }) {
+  return (
+    <span>
+      <Topbar title="My messages" />
+      <MessagesWidget {...{ list, form, params, actions }} />
+    </span>
+  );
+}
 Messages.propTypes = {
   actions: PropTypes.object.isRequired,
   messages: PropTypes.object

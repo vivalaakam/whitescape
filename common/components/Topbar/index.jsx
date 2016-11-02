@@ -8,7 +8,7 @@ const style = require('./Topbar.scss');
 export default class Topbar extends Component {
   static propTypes = {
     auth: PropTypes.object.isRequired,
-    main: PropTypes.object.isRequired
+    title: PropTypes.string
   };
 
   links() {
@@ -30,11 +30,11 @@ export default class Topbar extends Component {
   }
 
   render() {
-    const { main } = this.props;
+    const { title } = this.props;
     return (
       <div className={style.Topbar}>
         <div className={style.title}>
-          {main.title}
+          {title}
         </div>
         {this.links()}
       </div>
