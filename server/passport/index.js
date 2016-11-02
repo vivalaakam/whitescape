@@ -1,7 +1,7 @@
 import passport from 'koa-passport';
 import Auth from '../models/auth';
 import github from './github';
-import local from './local';
+import local, { signup } from './local';
 
 const auth = new Auth();
 
@@ -17,3 +17,4 @@ passport.use(local);
 passport.use(github);
 
 export default passport;
+export { signup };

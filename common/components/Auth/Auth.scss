@@ -2,23 +2,94 @@ $main-color: #474f60;
 
 .Auth {
   position: absolute;
-  width: 300px;
+  width: 450px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 15px;
-  background-color: #fff;
-  border-radius: 3px;
-  border: 1px solid scale-color($main-color, $lightness: 50%);
 
   .row {
-    margin-bottom: 15px;
-    &:last-child {
-      margin-bottom: 0px;
+    position: relative;
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
     }
+  }
+
+  .logo {
+    width: 199px;
+    height: 154px;
+    background-image: url(./Logo.png);
+    background-size: cover;
+    margin: 0 auto;
+    margin-bottom: 69px;
   }
 
   .btn {
     width: 100%;
+    font-size: 30px;
+    font-weight: 200;
+    border-radius: 0px;
+    border: none;
+  }
+
+  .inp {
+    padding: 30px;
+    padding-left: 75px;
+    height: 80px;
+    border: none;
+    font-size: 28px;
+    font-weight: 200;
+    border-radius: 0px;
+    display: block;
+    border-bottom: 1px solid #F3F3F4;
+  }
+
+  .email {
+    &:before {
+      width: 40px;
+      height: 35px;
+      background-image: url(./email.svg);
+      background-size: cover;
+    }
+  }
+
+  .password {
+    &:before {
+      width: 40px;
+      height: 45px;
+      background-image: url(./password.svg);
+      background-size: cover;
+    }
+  }
+
+  .submit {
+    height: 80px;
+    background-color: #BA77FF;
+    &:hover {
+      background-color: scale-color(#BA77FF, $lightness: 25%);
+      color: #fff;
+    }
+  }
+
+  .signup {
+    margin-top: 60px;
+    display: block;
+    color: #fff;
+    font-size: 26px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 200;
+  }
+
+  .error {
+    color: #FF7070;
+    &.submit {
+      background-color: #FF7070;
+      color: #fff;
+    }
   }
 }

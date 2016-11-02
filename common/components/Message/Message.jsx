@@ -11,7 +11,7 @@ export default function Message({ message, showModal, deleteMessage }) {
         target: message,
         title: `Remove "${message.text}"?`
       }
-    })
+    });
   };
 
   const format = moment().isSame(message.created_at, 'day') ? 'HH:mm' : 'DD.MM HH:mm';

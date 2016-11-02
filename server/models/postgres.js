@@ -38,6 +38,21 @@ export default class Postgres {
     return result;
   }
 
+  async getOne(where = {}, order = [], limit = false, offset = false) {
+    const query = {
+      where, order
+    };
+
+    if (limit !== false) {
+      query.limit = limit;
+    }
+    if (offset !== false) {
+      query.offset = offset;
+    }
+    const result = await this.collection.findOne(query);
+    return result;
+  }
+
   async create(data) {
     const result = await this.collection.create(data);
     return result;

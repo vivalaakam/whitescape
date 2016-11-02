@@ -12,4 +12,8 @@ export default class Auth extends Rest {
   auth({ username, password }) {
     return this.postQuery(this.base_url, { username, password });
   }
+
+  signup({ username, password, firstName, lastName }) {
+    return this.postQuery(`${this.base_url}/signup`, { username, password, firstName, lastName });
+  }
 }

@@ -36,7 +36,7 @@ const config = {
       },
       {
         test: /\.(png|svg)(\?.*$|$)/,
-        loader: 'url-loader'
+        loader: 'url-loader?limit=8192'
       }
     ]
   },

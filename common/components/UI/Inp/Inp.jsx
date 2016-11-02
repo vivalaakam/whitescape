@@ -1,10 +1,14 @@
 import React, { PropTypes } from 'react';
+import classnames from 'classnames';
 import style from './Inp.scss';
 
-export default function Inp({ onChange, onBlur, onKeyDown, value, link, placeholder = '', type = 'text' }) {
+export default function Inp({
+  onChange, onBlur, onKeyDown, value, link,
+  placeholder = '', type = 'text', className = ''
+}) {
   return (
     <input
-      className={style.Inp}
+      className={classnames(style.Inp, className)}
       onChange={onChange}
       onBlur={onBlur}
       onKeyDown={onKeyDown}
@@ -23,5 +27,6 @@ Inp.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
   link: PropTypes.func,
-  type: PropTypes.string
+  type: PropTypes.string,
+  className: PropTypes.string
 };

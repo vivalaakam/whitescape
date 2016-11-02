@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import classnames from 'classnames';
+import { Link } from 'react-router';
+import Back from '../Back/Back';
 import Inp from '../UI/Inp/Inp';
 import Btn from '../UI/Btn/Btn';
 import style from './Auth.scss';
@@ -10,70 +13,80 @@ export default class Auth extends Component {
     actions: PropTypes.object.isRequired
   };
 
-  getError() {
-    const { auth } = this.props;
-    if (auth.error) {
-      return (
-        <div>{this.props.auth.error}</div>
-      );
+  onEmail() {
+    const { actions } = this.props;
+    this.refEmail.classList.remove(style.error);
+    if (this.refEmail.value === '') {
+      actions.errorAuth('Field email can`t be blank');
+      this.refEmail.classList.add(style.error);
+      return false;
     }
+    return true;
+  }
 
-    return null;
+  onPassword() {
+    const { actions } = this.props;
+    this.refPassword.classList.remove(style.error);
+    if (this.refPassword.value === '') {
+      actions.errorAuth('Field password can`t be blank');
+      this.refPassword.classList.add(style.error);
+      return false;
+    }
+    return true;
   }
 
   submitAuth() {
     const { actions } = this.props;
 
-    if (this.refEmail.value === '') {
-      actions.errorAuth('Field email can`t be blank');
+    if (!this.onEmail()) {
       return;
     }
 
-    if (this.refPassword.value === '') {
-      actions.errorAuth('Field password can`t be blank');
+    if (!this.onPassword()) {
       return;
     }
 
     actions.authentificate({ username: this.refEmail.value, password: this.refPassword.value });
   }
 
-  success() {
-    const { actions } = this.props;
-    actions.getAuth();
-  }
-
-  github(e) {
-    if (e) {
-      e.preventDefault();
-    }
-    const curWidth = document.body.offsetWidth;
-    const curLeft = window.screenLeft;
-    const leftPos = curLeft + (curWidth / 2) - 500;
-
-    const curTop = window.screenTop;
-    const topPos = curTop + 100;
-    const features = `status=no,scrollbar=yes,resizable=yes,width=1000,height=600,top=${topPos},left=${leftPos}`;
-    const win = window.open('/api/auth/github', 'auth_popup', features);
-    win.onunload = ::this.success;
-  }
 
   render() {
+    const submitClassName = classnames(style.btn, style.submit, {
+      [style.error]: !!this.props.auth.error
+    });
+    const submitName = this.props.auth.error || 'Login';
     return (
-      <div className={style.Auth}>
-        {this.getError()}
-        <div className={style.row}>
-          <Inp type="email" link={c => (this.refEmail = c)} placeholder="email" />
+      <Back>
+        <div className={style.Auth}>
+          <div className={style.logo} />
+          <div className={classnames(style.row, style.email)}>
+            <Inp
+              className={style.inp}
+              type="email"
+              link={c => (this.refEmail = c)}
+              onChange={::this.onEmail}
+              placeholder="Email"
+            />
+          </div>
+          <div className={classnames(style.row, style.password)}>
+            <Inp
+              className={style.inp}
+              type="password"
+              link={c => (this.refPassword = c)}
+              onChange={::this.onPassword}
+              placeholder="Password"
+            />
+          </div>
+          <div className={style.row}>
+            <Btn
+              className={submitClassName}
+              onClick={::this.submitAuth}
+              disabled={!!this.props.auth.error}
+            >{submitName}</Btn>
+          </div>
+          <Link className={style.signup} to="/signup">Create Account</Link>
         </div>
-        <div className={style.row}>
-          <Inp type="password" link={c => (this.refPassword = c)} placeholder="passport" />
-        </div>
-        <div className={style.row}>
-          <Btn className={style.btn} onClick={::this.submitAuth}>Submit</Btn>
-        </div>
-        <div className={style.row}>
-          <Btn className={style.btn} scheme="github" onClick={::this.github}>Login via GitHub</Btn>
-        </div>
-      </div>
+      </Back>
     );
   }
 }

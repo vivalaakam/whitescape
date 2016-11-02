@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import passport from '../passport';
+import passport, { signup } from '../passport';
 import Auth from '../models/auth';
 
 const authModel = new Auth();
@@ -17,6 +17,28 @@ export default {
       ctx.set('Authorization', `JWT ${token}`);
       return ctx.login(user);
     })(ctx, next);
+  },
+  signup: async function mysignup(ctx, next) {
+    try {
+      const { username, password, firstName, lastName } = ctx.request.body;
+      const exists = await authModel.getOne({ username });
+      if (exists) {
+        throw new Error('User exists');
+      }
+
+      const user = await signup({
+        username,
+        password,
+        firstName,
+        lastName
+      });
+      await ctx.login(user);
+      return next();
+    } catch (e) {
+      ctx.status = 409;
+      ctx.body = e.message;
+      return ctx;
+    }
   },
   login: async function login(ctx) {
     const auth = ctx.state.user;

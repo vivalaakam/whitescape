@@ -14,7 +14,7 @@ import {
   watchDeleteMessage
 } from '../reducers/messages/list';
 import { watchSetMessage } from '../reducers/messages/form';
-import { watchFetchAuth, watchAuthentificate } from '../reducers/auth';
+import { watchFetchAuth, watchAuthentificate, watchSignup } from '../reducers/auth';
 import { watchResolveActionModal, watchRejectActionModal } from '../reducers/modal';
 
 export default function* rootSaga() {
@@ -28,6 +28,7 @@ export default function* rootSaga() {
     watchClearCompletedTodos(),
     watchFetchAuth(),
     watchAuthentificate(),
+    watchSignup(),
     watchResolveActionModal(),
     watchRejectActionModal(),
     watchCreateMessage(),

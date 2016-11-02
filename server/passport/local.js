@@ -4,6 +4,17 @@ import Auth from '../models/auth';
 
 const auth = new Auth();
 
+export async function signup({ username, password, firstName, lastName }) {
+  const user = await auth.create({
+    username,
+    password: bcrypt.hashSync(password, 8),
+    firstName,
+    lastName
+  });
+  delete user.password;
+  return user;
+}
+
 export default new Strategy(async(username, password, done) => {
   const users = await auth.list({ username });
   if (users.length > 0) {
@@ -16,10 +27,9 @@ export default new Strategy(async(username, password, done) => {
     delete user.password;
     return done(null, user);
   }
-  const user = await auth.create({
+  const user = await signup({
     username,
     password: bcrypt.hashSync(password, 8)
   });
-  delete user.password;
   return done(null, user);
 });

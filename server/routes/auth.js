@@ -11,6 +11,7 @@ router
   .get('/logout', auth.logout)
   .get('/close', auth.close)
   .post('/', auth.auth, auth.login)
+  .post('/signup', auth.signup, auth.login)
   .get('/github', passport.authenticate('github'))
   .get('/github/callback', passport.authenticate('github', {
     successRedirect: '/api/auth/close',

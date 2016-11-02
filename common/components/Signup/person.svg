@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="41px" height="38px" viewBox="0 0 41 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>name</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M24.5546461,27.1192425 C17.9248917,27.1192425 4.91092922,30.3457059 4.91092922,37.0468223 L4.91092922,42.0106123 L44.198363,42.0106123 L44.198363,37.0468223 C44.198363,30.3457059 31.1844006,27.1192425 24.5546461,27.1192425 L24.5546461,27.1192425 Z M24.5546461,23.245065 C29.4164661,23.245065 33.3943187,19.3224603 33.3943187,14.5281656 C33.3943187,9.73387097 29.4164661,5.81126625 24.5546461,5.81126625 C19.6928262,5.81126625 15.7149735,9.73387097 15.7149735,14.5281656 C15.7149735,19.3224603 19.6928262,23.245065 24.5546461,23.245065 L24.5546461,23.245065 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="39.2874338" height="36.199346" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.3">
+        <g id="Sign-Up" transform="translate(-14.000000, -161.000000)">
+            <g id="Last-name-Copy" transform="translate(10.000000, 156.000000)">
+                <g id="name">
+                    <use id="shape" stroke="#1D1D26" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+                    <rect id="bounds" x="0" y="0" width="49.1092922" height="48.4272187"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

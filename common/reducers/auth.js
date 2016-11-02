@@ -11,6 +11,7 @@ const AUTH_CURRENT = Symbol('AUTH_CURRENT');
 const AUTH_ERROR = Symbol('AUTH_ERROR');
 const AUTH_FETCH = Symbol('AUTH_FETCH');
 const AUTH_AUTHENTIFICATE = Symbol('AUTH_AUTHENTIFICATE');
+const AUTH_SIGNUP = Symbol('AUTH_SIGNUP');
 
 const $$initialState = {};
 
@@ -25,7 +26,6 @@ export default function auth($$state = $$initialState, { type, payload }) {
   }
 }
 
-
 const fetchAuth = createAction(AUTH_FETCH);
 
 const currentAuth = createAction(AUTH_CURRENT);
@@ -33,6 +33,8 @@ const currentAuth = createAction(AUTH_CURRENT);
 const errorAuth = createAction(AUTH_ERROR);
 
 const authentificate = createAction(AUTH_AUTHENTIFICATE);
+
+const signup = createAction(AUTH_SIGNUP);
 
 function* fetchAuthAction() {
   const authData = yield apiAuth.current();
@@ -49,6 +51,16 @@ function* authentificateAction({ payload: { username, password } }) {
   }
 }
 
+function* signupAction({ payload }) {
+  try {
+    const user = yield apiAuth.signup(payload);
+    yield put(currentAuth(user));
+    yield put(push('/'));
+  } catch (e) {
+    yield put(errorAuth(e.message));
+  }
+}
+
 export function* watchFetchAuth() {
   yield* takeEvery(AUTH_FETCH, fetchAuthAction);
 }
@@ -57,6 +69,10 @@ export function* watchAuthentificate() {
   yield* takeEvery(AUTH_AUTHENTIFICATE, authentificateAction);
 }
 
+export function* watchSignup() {
+  yield takeEvery(AUTH_SIGNUP, signupAction);
+}
+
 export {
-  fetchAuth, authentificate, errorAuth
+  fetchAuth, signup, authentificate, errorAuth
 };
