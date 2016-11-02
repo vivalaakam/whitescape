@@ -34,10 +34,10 @@ export default class Topbar extends Component {
     const { title } = this.props;
     return (
       <div className={style.Topbar}>
-        <div className={style.title}>
-          {title}
+        <div className={style.wrapper}>
+          <div className={style.title}>{title}</div>
+          {this.links()}
         </div>
-        {this.links()}
       </div>
     );
   }
