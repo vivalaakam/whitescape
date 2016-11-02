@@ -15,8 +15,7 @@ export default class Topbar extends Component {
     if (auth && auth.id) {
       return (
         <div className={style.auth}>
-          <Link className={style.link} to="/todos">Todos</Link>
-          <Link className={style.link} to="/messages">Messages</Link>
+          <Link className={style.link} to="/">Messages</Link>
           <a className={style.link} href="/api/auth/logout">Logout</a>
         </div>
       );

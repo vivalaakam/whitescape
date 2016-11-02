@@ -1,12 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import CreateTodo from '../components/CreateTodo/CreateTodo';
 import ConfirmRemove from '../components/ConfirmRemove/ConfirmRemove';
 import * as modalActions from '../reducers/modal';
 
 const MODAL_COMPONENTS = {
-  CREATE_TODO: CreateTodo,
   CONFIRM_REMOVE: ConfirmRemove
 };
 
