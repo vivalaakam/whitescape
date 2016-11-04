@@ -4,3 +4,5 @@ npm-debug.log
 .idea
 assets
 npm-debug.log*
+dist
+static
